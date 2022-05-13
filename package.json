@@ -1,0 +1,31 @@
+{
+  "name": "quickswap-default-staking-list",
+  "version": "1.0.0",
+  "description": "◦ The Quickswap default staking list",
+  "main": "build/quickswap-default.syrups.json",
+  "scripts": {
+    "test": "mocha",
+    "build": "rimraf build && mkdir -p build && node src/writeSyrup.js > build/quickswap-default.syrups.json && node src/writeLPFarm.js > build/quickswap-default.lpfarms.json && node src/writeDualFarm.js > build/quickswap-default.dualfarms.json",
+    "prepublishOnly": "npm test && npm run build"
+  },
+  "files": [
+    "build/quickswap-default.syrups.json",
+    "build/quickswap-default.dualfarms.json",
+    "build/quickswap-default.lpfarms.json"
+  ],
+  "keywords": [
+    "uniswap",
+    "quickswap",
+    "default",
+    "token",
+    "list"
+  ],
+  "author": "totop716",
+  "license": "GPL-3.0-or-later",
+  "devDependencies": {
+    "ajv": "^6.12.3",
+    "chai": "^4.2.0",
+    "mocha": "^8.0.1",
+    "rimraf": "^3.0.2"
+  }
+}
