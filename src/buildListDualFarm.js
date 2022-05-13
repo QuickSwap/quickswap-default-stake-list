@@ -1,5 +1,5 @@
 const { version } = require('../package.json');
-const dualfarms = require('./dualfarms/index.json');
+const dualFarms = require('./dualfarms/index.json');
 
 module.exports = function buildList() {
   const parsed = version.split('.');
@@ -17,6 +17,6 @@ module.exports = function buildList() {
       'uniswap',
       'default'
     ],
-    dualfarms
+    dualFarms
   };
 };
