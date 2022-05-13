@@ -1,5 +1,16 @@
 [
   {
+    "token": "NSFW",
+    "stakingRewardAddress": "0xDd3D03931f6F4CE8D49bE04D7f816433B14b8820",
+    "ended": false,
+    "lp": "",
+    "name": "",
+    "baseToken": "MATIC",
+    "rate": 11743333.33,
+    "ending": 1657586739,
+    "stakingToken": "QUICKNEW"
+  },
+  {
     "token": "FODL",
     "stakingRewardAddress": "0xFc80C8817405f7D7a345051a47EC457ED0080664",
     "ended": false,
