@@ -16,19 +16,19 @@ describe('buildList', () => {
     const mapSyrup = {};
     const mapLPFarm = {};
     const mapDualFarm = {};
-    for (let syrup of defaultSyrupList.syrups) {
+    for (let syrup of defaultSyrupList.active) {
       const key = syrup.stakingRewardAddress;
       expect(typeof mapSyrup[ key ])
         .to.equal('undefined');
       mapSyrup[ key ] = true;
     }
-    for (let dualfarm of defaultDualFarmList.dualFarms) {
+    for (let dualfarm of defaultDualFarmList.active) {
       const key = dualfarm.stakingRewardAddress;
       expect(typeof mapDualFarm[ key ])
         .to.equal('undefined');
       mapDualFarm[ key ] = true;
     }
-    for (let lpfarm of defaultLPFarmList.lpFarms) {
+    for (let lpfarm of defaultLPFarmList.active) {
       const key = lpfarm.stakingRewardAddress;
       expect(typeof mapLPFarm[ key ])
         .to.equal('undefined');
@@ -40,19 +40,19 @@ describe('buildList', () => {
     const mapSyrup = {};
     const mapLPFarm = {};
     const mapDualFarm = {};
-    for (let syrup of defaultSyrupList.syrups) {
+    for (let syrup of defaultSyrupList.active) {
       const key = `${syrup.token}-${syrup.stakingToken}`;
       expect(typeof mapSyrup[ key ])
         .to.equal('undefined');
       mapSyrup[ key ] = true;
     }
-    for (let dualfarm of defaultDualFarmList.dualFarms) {
+    for (let dualfarm of defaultDualFarmList.active) {
       const key = `${dualfarm.tokens[0]}-${dualfarm.tokens[1]}`;
       expect(typeof mapDualFarm[ key ])
         .to.equal('undefined');
       mapDualFarm[ key ] = true;
     }
-    for (let lpfarm of defaultLPFarmList.lpFarms) {
+    for (let lpfarm of defaultLPFarmList.active) {
       const key = `${lpfarm.tokens[0]}-${lpfarm.tokens[1]}`;
       expect(typeof mapLPFarm[ key ])
         .to.equal('undefined');
