@@ -1,8 +1,19 @@
 [
   {
+    "token": "TEL",
+    "stakingRewardAddress": "0xcC6Cc4e642c889742278CF302d5276E7eF498d66",
+    "ended": true,
+    "lp": "",
+    "name": "",
+    "baseToken": "ETHER",
+    "rate": 222222.22,
+    "ending": 1654122663,
+    "stakingToken": "QUICK"
+  },
+  {
     "token": "PSP",
     "stakingRewardAddress": "0xdcbDa338D12DBc823d0D484e7206E9AA55eeD844",
-    "ended": true,
+    "ended": false,
     "lp": "",
     "name": "",
     "baseToken": "MATIC",
@@ -219,7 +230,7 @@
     "ending": 1646066718,
     "stakingToken": "DQUICK"
   },
-  {
+  {  
     "token": "DERC",
     "stakingRewardAddress": "0xE800041A775D269e1cD38261B4500b0D8F0e9916",
     "ended": true,
@@ -351,7 +362,7 @@
     "ending": 1643302635,
     "stakingToken": "DQUICK"
   },
-  {
+  { 
     "token": "WSG",
     "stakingRewardAddress": "0x2b91d985AEb645cc580E35BdF52DF2694e742ADF",
     "ended": true,
@@ -417,7 +428,7 @@
     "ending": 1642352188,
     "stakingToken": "DQUICK"
   },
-
+  
   {
     "token": "COMBO",
     "stakingRewardAddress": "0xFAcba3A45354f27442406Df293D9C68FD8f0A8b1",
@@ -462,6 +473,7 @@
     "ending": 1639844474,
     "stakingToken": "DQUICK"
   },
+  
   {
     "token": "MASK",
     "stakingRewardAddress": "0x15cB4132e4438F11fde5199aC6aE15881f1C1456",

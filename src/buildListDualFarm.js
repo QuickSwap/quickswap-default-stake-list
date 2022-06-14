@@ -1,5 +1,6 @@
 const { version } = require('../package.json');
-const dualFarms = require('./dualfarms/index.json');
+const active = require('./dualfarms/active.json');
+const ended = require('./dualfarms/ended.json');
 
 module.exports = function buildList() {
   const parsed = version.split('.');
@@ -14,9 +15,14 @@ module.exports = function buildList() {
     'tags': {},
     'logoURI': 'ipfs://QmQ9GCVmLQkbPohxKeCYkbpmwfTvHXrY64TmBsPQAZdbqZ',
     'keywords': [
-      'uniswap',
+      'quickswap',
       'default'
     ],
-    dualFarms
+    active: [
+      ...active
+    ],
+    closed: [
+      ...ended
+    ]
   };
 };

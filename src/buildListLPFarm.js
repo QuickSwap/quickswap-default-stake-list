@@ -15,11 +15,13 @@ module.exports = function buildList() {
     'tags': {},
     'logoURI': 'ipfs://QmQ9GCVmLQkbPohxKeCYkbpmwfTvHXrY64TmBsPQAZdbqZ',
     'keywords': [
-      'uniswap',
+      'quickswap',
       'default'
     ],
-    lpFarms: [
-      ...active,
+    active: [
+      ...active
+    ],
+    closed: [
       ...ended
     ]
   };
