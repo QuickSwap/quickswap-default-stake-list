@@ -1,30 +1,39 @@
 [{
-  "tokens": [ "QUICK", "ETHER" ],
+  "tokens": [
+    "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+    "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"
+  ],
   "stakingRewardAddress": "0x5BcFcc24Db0A16b1C01BAC1342662eBd104e816c",
   "ended": true,
   "lp": "",
   "name": "",
-  "baseToken": "ETHER",
+  "baseToken": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
   "rate": 0,
   "pair": "0x1Bd06B96dd42AdA85fDd0795f3B4A79DB914ADD5"
 },
 {
-  "tokens": [ "QUICK", "USDC" ],
+  "tokens": [
+    "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+    "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+  ],
   "stakingRewardAddress": "0x939290Ed45514E82900BA767bBcfa38eE1067039",
   "ended": true,
   "lp": "",
   "name": "",
-  "baseToken": "USDC",
+  "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
   "rate": 0,
   "pair": "0x1F1E4c845183EF6d50E9609F16f6f9cAE43BC9Cb"
 },
 {
-  "tokens": [ "USDC", "ORBS" ],
+  "tokens": [
+    "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
+    "0x614389EaAE0A6821DC49062D56BDA3d9d45Fa2ff"
+  ],
   "stakingRewardAddress": "0x9CA237962823A0a74bbC8354764e1DAC9e4057F0",
   "ended": true,
   "lp": "",
   "name": "",
-  "baseToken": "USDC",
+  "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
   "rate": 0,
   "pair": "0xB2b6D423e535b57aaD06E9866803B95fB66152EA"
 }]
