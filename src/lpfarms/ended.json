@@ -1,30 +1,90 @@
 [{
-  "tokens": [ "QUICK", "ETHER" ],
-  "stakingRewardAddress": "0x5BcFcc24Db0A16b1C01BAC1342662eBd104e816c",
+  "tokens": [ "MATIC", "PDDOLLAR" ],
+  "stakingRewardAddress": "0x1bd082eC458Cf2EB4a2918C5de3b4b6cc655e977",
+  "ended": true,
+  "lp": "",
+  "name": "",
+  "baseToken": "MATIC",
+  "rate": 0,
+  "pair": "0xEBcA34c9Fc0be6a37dEAF62DDd064941f53Ed246"
+},
+{
+  "tokens": [ "MATIC", "NSFW" ],
+  "stakingRewardAddress": "0x650a4c205fc8f3c7d0b92B41f1F12AA73F14618E",
+  "ended": true,
+  "lp": "",
+  "name": "",
+  "baseToken": "MATIC",
+  "rate": 0,
+  "pair": "0x9646a93D64B19AD3E1A9Ea6E4c2C112a41a59d3A"
+},
+{
+  "tokens": [ "USDT", "IXT" ],
+  "stakingRewardAddress": "0x99872da6038D60E4cF6Dc2C16710B63c380f79dB",
+  "ended": true,
+  "lp": "",
+  "name": "",
+  "baseToken": "USDT",
+  "rate": 0,
+  "pair": "0x304e57c752E854E9A233Ae82fcC42F7568b81180"
+},
+{
+  "tokens": [ "USDC", "DERC" ],
+  "stakingRewardAddress": "0xaBECe67c01cd2E8ecBFaA311bd08EC299dA03629",
+  "ended": true,
+  "lp": "",
+  "name": "",
+  "baseToken": "USDC",
+  "rate": 0,
+  "pair": "0x0a8A3Cb9A21C893a207826E76125eF6FaAAd99eC"
+},
+{
+  "tokens": [ "ETHER", "MODA" ],
+  "stakingRewardAddress": "0x4dDf81C874526aDb5A13c47e56a942B164698933",
   "ended": true,
   "lp": "",
   "name": "",
   "baseToken": "ETHER",
   "rate": 0,
-  "pair": "0x1Bd06B96dd42AdA85fDd0795f3B4A79DB914ADD5"
+  "pair": "0xA19460a60cb48d8c5AAa10b874F7a908E0483ea5"
 },
 {
-  "tokens": [ "QUICK", "USDC" ],
-  "stakingRewardAddress": "0x939290Ed45514E82900BA767bBcfa38eE1067039",
+  "tokens": [ "MATIC", "CEL" ],
+  "stakingRewardAddress": "0xB64b8d7dba4E0548F8992c7109F5a9d89A54a6a8",
   "ended": true,
   "lp": "",
   "name": "",
-  "baseToken": "USDC",
+  "baseToken": "MATIC",
   "rate": 0,
-  "pair": "0x1F1E4c845183EF6d50E9609F16f6f9cAE43BC9Cb"
+  "pair": "0x7D341B151DbFBFe97714f3EdEc98E26f2DD0e532"
 },
 {
-  "tokens": [ "USDC", "ORBS" ],
-  "stakingRewardAddress": "0x9CA237962823A0a74bbC8354764e1DAC9e4057F0",
+  "tokens": [ "MATIC", "FODL" ],
+  "stakingRewardAddress": "0xea678c4aCF0380216411d6B2b630888761Fb647b",
   "ended": true,
   "lp": "",
   "name": "",
-  "baseToken": "USDC",
+  "baseToken": "MATIC",
   "rate": 0,
-  "pair": "0xB2b6D423e535b57aaD06E9866803B95fB66152EA"
+  "pair": "0x2Fc4DFCEe8C331D54341f5668a6d9BCdd86F8e2f"
+},
+{
+  "tokens": [ "MATIC", "PECO" ],
+  "stakingRewardAddress": "0x27b3f4e93b7dCE173F682E760F492665e7f15Ad9",
+  "ended": true,
+  "lp": "",
+  "name": "",
+  "baseToken": "MATIC",
+  "rate": 0,
+  "pair": "0xc2ea6521F23358d18C3623d33Ce1106f798aCC64"
+},
+{
+  "tokens": [ "MATIC", "TOWER" ],
+  "stakingRewardAddress": "0x9FBd869E09335C568395722AaEfF4d041e72d12B",
+  "ended": true,
+  "lp": "",
+  "name": "",
+  "baseToken": "MATIC",
+  "rate": 0,
+  "pair": "0xc74e7A5cDbF0C916d5BFFA7B6BDDD43AB46E72Ea"
 }]
