@@ -1,5 +1,16 @@
 [
   {
+    "token": "TEL",
+    "stakingRewardAddress": "0xbaef1B35798bA6C2FA95d340dc6aAf284BBe2EEe",
+    "ended": true,
+    "lp": "",
+    "name": "",
+    "baseToken": "ETHER",
+    "rate": 222222.22,
+    "ending": 1661995203,
+    "stakingToken": "QUICKNEW"
+  },
+  {
     "token": "BOOK",
     "stakingRewardAddress": "0xFBE299d79B3f8fEcAc2A5B7183edDD033FfF9fC3",
     "ended": true,

@@ -33,17 +33,6 @@
     "stakingToken": "QUICKNEW"
   },
   {
-    "token": "TEL",
-    "stakingRewardAddress": "0xbaef1B35798bA6C2FA95d340dc6aAf284BBe2EEe",
-    "ended": true,
-    "lp": "",
-    "name": "",
-    "baseToken": "ETHER",
-    "rate": 222222.22,
-    "ending": 1661995203,
-    "stakingToken": "QUICKNEW"
-  },
-  {
     "token": "LCD",
     "stakingRewardAddress": "0x99787cc11354b4bb7f506D63b0340f56C65E72F5",
     "ended": false,
