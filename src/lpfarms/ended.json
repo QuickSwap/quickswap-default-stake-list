@@ -1,4 +1,15 @@
-[{
+[
+  {
+    "tokens": [ "MATIC", "QUIDD" ],
+    "stakingRewardAddress": "0x3E3eB91c928734fbab0AC41cA40C118F25ab28a7",
+    "ended": true,
+    "lp": "",
+    "name": "",
+    "baseToken": "MATIC",
+    "rate": 0,
+    "pair": "0xADBd183ff04FF3dc9cd980F07b308c25dF77E860"
+  },
+  {
   "tokens": [ "MATIC", "PDDOLLAR" ],
   "stakingRewardAddress": "0x1bd082eC458Cf2EB4a2918C5de3b4b6cc655e977",
   "ended": true,
