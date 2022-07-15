@@ -96,5 +96,19 @@
     "rateA": 8.25,
     "rateB": 1053,
     "pair": "0xb0e69f24982791dd49e316313fd3a791020b8bf7"
-  }
+  },
+  {
+    "tokens": ["STMATIC","MATIC"],
+    "stakingRewardAddress": "0x8ECbc9B0741C000fd7aaE9cb559e5eEe1D1883F3",
+    "ended": false,
+    "lp": "",
+    "name": "",
+    "baseToken": "MATIC",
+    "rewardTokenA": "DQUICK",
+    "rewardTokenB": "LDO",
+    "rewardTokenBBase": "MATIC",
+    "rateA": 6.6,
+    "rateB": 1428,
+    "pair": "0x65752c54d9102bdfd69d351e1838a1be83c924c6"
+  },
 ]
