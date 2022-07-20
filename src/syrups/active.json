@@ -1,79 +1,79 @@
 [
   {
-    "token": "QUIDD",
+    "token": "0x123706cDD8e60324e610E9A2CC7012D0F45A5b8E",
     "stakingRewardAddress": "0xEc9DB6f357917a88e223c6A88c2CBFC6f7d76a39",
     "ended": false,
     "lp": "",
     "name": "",
-    "baseToken": "MATIC",
+    "baseToken": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rate": 5200,
     "ending": 1659668781,
-    "stakingToken": "QUICKNEW"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
   },
   {
-    "token": "IXT",
+    "token": "0xE06Bd4F5aAc8D0aA337D13eC88dB6defC6eAEefE",
     "stakingRewardAddress": "0xF3ed4Fc825864a16CAb4b8946622222050c63f5E",
     "ended": false,
     "lp": "",
     "name": "",
-    "baseToken": "USDT",
+    "baseToken": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
     "rate": 2666.666667,
     "ending": 1661042020,
-    "stakingToken": "QUICK"
+    "stakingToken": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13"
   },
   {
-    "token": "PAE",
+    "token": "0x8063037ea50E4a066bF1430EA1E3e609CD5cEf6B",
     "stakingRewardAddress": "0x7b9B6F2bf9A0472761A65BACFDA97Ef3B87B170b",
     "ended": false,
     "lp": "",
     "": "",
-    "baseToken": "MATIC",
+    "baseToken": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rate": 58.89,
     "ending": 1664237536,
-    "stakingToken": "QUICKNEW"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
   },
   {
-    "token": "LCD",
+    "token": "0xc2A45FE7d40bCAc8369371B08419DDAFd3131b4a",
     "stakingRewardAddress": "0x99787cc11354b4bb7f506D63b0340f56C65E72F5",
     "ended": false,
     "lp": "",
     "name": "",
-    "baseToken": "MATIC",
+    "baseToken": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rate": 40000,
     "ending": 1659224731,
-    "stakingToken": "QUICKNEW"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
   },
   {
-    "token": "NSFW",
+    "token": "0x8f006D1e1D9dC6C98996F50a4c810F17a47fBF19",
     "stakingRewardAddress": "0xDd3D03931f6F4CE8D49bE04D7f816433B14b8820",
     "ended": false,
     "lp": "",
     "name": "",
-    "baseToken": "MATIC",
+    "baseToken": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rate": 11743333.33,
     "ending": 1657586739,
-    "stakingToken": "QUICKNEW"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
   },
   {
-    "token": "BLANK",
+    "token": "0xf4C83080E80AE530d6f8180572cBbf1Ac9D5d435",
     "stakingRewardAddress": "0x834A43bB0e9a208139497ea9DA005A7973903421",
     "ended": false,
     "lp": "",
     "name": "",
-    "baseToken": "USDC",
+    "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rate": 1500,
     "ending": 1657076781,
-    "stakingToken": "QUICKNEW"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
   },
   {
-    "token": "ACRE",
+    "token": "0x011734f6Ed20E8D011d85Cf7894814B897420acf",
     "stakingRewardAddress": "0x1e578D4F624A2bA8E697e0b834e48AcA856184dE",
     "ended": false,
     "lp": "",
     "name": "",
-    "baseToken": "MATIC",
+    "baseToken": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rate": 150001.1111,
     "ending": 1664237536,
-    "stakingToken": "QUICKNEW"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
   }
 ]
