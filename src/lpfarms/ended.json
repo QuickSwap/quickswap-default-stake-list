@@ -1,5 +1,35 @@
 [
   {
+    "tokens": [ "ETHER", "MCHC" ],
+    "stakingRewardAddress": "0xb2E9f0684e86fBbac6E8eF9fB64030178EC9Cc3D",
+    "ended": true,
+    "lp": "",
+    "name": "",
+    "baseToken": "ETHER",
+    "rate": 0,
+    "pair": "0xe90056B377CbbB477E3950505cCBD8d00B9cDc75"
+  },
+  {
+    "tokens": [ "USDC", "BLANK" ],
+    "stakingRewardAddress": "0xd8a4784bf0deBf82b815ED4822c0306dD5E7b457",
+    "ended": true,
+    "lp": "",
+    "name": "",
+    "baseToken": "USDC",
+    "rate": 0,
+    "pair": "0x3B480d50b9ed88B4891e066681467a73F78d8c22"
+  },
+  {
+    "tokens": [ "USDC", "UND" ],
+    "stakingRewardAddress": "0x79465793A612D8A7972c11961fC8f1825d6AD67D",
+    "ended": true,
+    "lp": "",
+    "name": "",
+    "baseToken": "USDC",
+    "rate": 0,
+    "pair": "0x55a08B3c363a2Cc61A07d54B52FEe201bd4eC0dC"
+  },
+  {
     "tokens": [ "MATIC", "QUIDD" ],
     "stakingRewardAddress": "0x3E3eB91c928734fbab0AC41cA40C118F25ab28a7",
     "ended": true,
