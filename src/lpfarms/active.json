@@ -19,6 +19,16 @@
   "pair": "0xdc9232e2df177d7a12fdff6ecbab114e2231198d"
 },
 {
+  "tokens": [ "USDC", "ASTRAFER" ],
+  "stakingRewardAddress": "0x1098d71eCD0233929DA8a10579E96cBbbe78f7C2",
+  "ended": false,
+  "lp": "",
+  "name": "",
+  "baseToken": "USDC",
+  "rate": 11.3,
+  "pair": "0x01eBD3e57f4af47B7E96240e2B7B2227C902614A"
+},
+{
   "tokens": [ "MATIC", "PAE" ],
   "stakingRewardAddress": "0xf8A04d1c6a3bF6ee3fB450d9bf394b2cEfbaAd9B",
   "ended": false,
