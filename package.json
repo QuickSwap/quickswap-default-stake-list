@@ -1,6 +1,6 @@
 {
   "name": "quickswap-default-staking-list-address",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "◦ The Quickswap default staking list",
   "main": "build/quickswap-default.syrups.json",
   "scripts": {

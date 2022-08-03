@@ -9,8 +9,8 @@
   "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
   "rewardTokenB": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
   "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-  "rateA": 26.4,
-  "rateB": 400,
+  "rateA": 18.6,
+  "rateB": 300,
   "pair": "0xadbf1854e5883eb8aa7baf50705338739e558e5b"
   },
   {
@@ -23,23 +23,9 @@
     "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
     "rewardTokenB": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rateA": 12.54,
-    "rateB": 300,
+    "rateA": 9.3,
+    "rateB": 200,
     "pair": "0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827"
-  },
-  {
-    "tokens": ["0x2e1AD108fF1D8C782fcBbB89AAd783aC49586756","0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"],
-    "stakingRewardAddress": "0x1661C61b66A2A2C54970F271f2B86556cdf18B97",
-    "ended": false,
-    "lp": "",
-    "name": "",
-    "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
-    "rewardTokenB": "0x2e1AD108fF1D8C782fcBbB89AAd783aC49586756",
-    "rateA": 7.92,
-    "rateB": 833,
-    "pair": "0x17a7829cc1167ecda8b9668414a5405050846f8a"
   },
   {
     "tokens": ["0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","0xB5C064F955D8e7F38fE0460C556a72987494eE17"],
@@ -51,7 +37,7 @@
     "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
     "rewardTokenB": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rateA": 7.92,
+    "rateA": 7.44,
     "rateB": 100,
     "pair": "0xf3eb2f17eafbf35e92c965a954c6e7693187057d"
   },
@@ -65,7 +51,7 @@
     "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
     "rewardTokenB": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rateA": 5.28,
+    "rateA": 4.96,
     "rateB": 100,
     "pair": "0x604229c960e5cacf2aaeac8be68ac07ba9df81c3"
   },
@@ -79,8 +65,8 @@
     "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
     "rewardTokenB": "0x1d734A02eF1e1f5886e66b0673b71Af5B53ffA94",
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rateA": 8.25,
-    "rateB": 1053,
+    "rateA": 4.96,
+    "rateB": 3600,
     "pair": "0xb0e69f24982791dd49e316313fd3a791020b8bf7"
   },
   {
@@ -93,8 +79,8 @@
     "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
     "rewardTokenB": "0xC3C7d422809852031b44ab29EEC9F1EfF2A58756",
     "rewardTokenBBase": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-    "rateA": 6.6,
-    "rateB": 1428,
+    "rateA": 4.96,
+    "rateB": 1330,
     "pair": "0x65752c54d9102bdfd69d351e1838a1be83c924c6"
   },
   {
@@ -107,7 +93,7 @@
     "rewardTokenBBase": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
     "rewardTokenB": "0xc2A45FE7d40bCAc8369371B08419DDAFd3131b4a",
-    "rateA": 1.98,
+    "rateA": 1.86,
     "rateB": 80000,
     "pair": "0xaab5254e17380511887aaba7e96a5339a519e26a"
   }
