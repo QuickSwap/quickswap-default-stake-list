@@ -8,7 +8,7 @@
     "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rate": 25000,
     "ending": 1665619534,
-    "stakingToken": "QUICKNEW"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
   },
   {
     "token": "0x346404079b3792a6c548B072B9C4DDdFb92948d5",
@@ -19,7 +19,7 @@
     "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rate": 3687.48,
     "ending": 1665619534,
-    "stakingToken": "QUICKNEW"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
   },
   {
     "token": "0xDfCe1e99A31C4597a3f8A8945cBfa9037655e335",
