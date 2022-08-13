@@ -6,7 +6,7 @@
     "lp": "",
     "name": "",
     "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rate": 1500000,
+    "rate": 25000,
     "ending": 1665619534,
     "stakingToken": "QUICKNEW"
   },
@@ -17,7 +17,7 @@
     "lp": "",
     "name": "",
     "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rate": 221249,
+    "rate": 3687.48,
     "ending": 1665619534,
     "stakingToken": "QUICKNEW"
   },
