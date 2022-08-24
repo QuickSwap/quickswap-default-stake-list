@@ -11,7 +11,9 @@
     "rewardTokenB": "0x2e1AD108fF1D8C782fcBbB89AAd783aC49586756",
     "rateA": 0,
     "rateB": 0,
-    "pair": "0x17a7829cc1167ecda8b9668414a5405050846f8a"
+    "pair": "0x17a7829cc1167ecda8b9668414a5405050846f8a",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0xD30DC92b8ec0fa8de625768d208f51A93C10aFF2","0x1BFD67037B42Cf73acF2047067bd4F2C47D9BfD6"],
@@ -25,7 +27,9 @@
     "rewardTokenB": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rateA": 18.48,
     "rateB": 2767,
-    "pair": "0x384b41bd57d4eb3cec5ed8063c4b15a6071cee29"
+    "pair": "0x384b41bd57d4eb3cec5ed8063c4b15a6071cee29",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0xfe4546feFe124F30788c4Cc1BB9AA6907A7987F9","0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"],
@@ -39,7 +43,9 @@
     "rewardTokenB": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rateA": 18.48,
     "rateB": 2767,
-    "pair": "0xda7cd765df426fca6fb5e1438c78581e4e66bfe7"
+    "pair": "0xda7cd765df426fca6fb5e1438c78581e4e66bfe7",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x64875Aaa68d1d5521666C67d692Ee0B926b08b2F","0xfe4546feFe124F30788c4Cc1BB9AA6907A7987F9"],
@@ -53,7 +59,9 @@
     "rewardTokenB": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rateA": 38.48229,
     "rateB": 5533.33,
-    "pair": "0xfec2385b26a4446a7813d16263348fde7e99fee4"
+    "pair": "0xfec2385b26a4446a7813d16263348fde7e99fee4",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x9Bd9aD490dD3a52f096D229af4483b94D63BE618","0xfe4546feFe124F30788c4Cc1BB9AA6907A7987F9"],
@@ -81,7 +89,9 @@
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rateA": 8.196,
     "rateB": 100,
-    "pair": "0x019ba0325f1988213d448b3472fa1cf8d07618d7"
+    "pair": "0x019ba0325f1988213d448b3472fa1cf8d07618d7",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0xB382C1cfA622795a534e5bd56Fac93d59BAc8B0D","0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
@@ -95,7 +105,9 @@
     "rewardTokenBBase": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rateA": 1.334,
     "rateB": 7500,
-    "pair": "0x3f245c6f18442bd6198d964c567a01bd4202e290"
+    "pair": "0x3f245c6f18442bd6198d964c567a01bd4202e290",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x51869836681BcE74a514625c856aFb697a013797","0x831753DD7087CaC61aB5644b308642cc1c33Dc13"],
@@ -109,7 +121,9 @@
     "rewardTokenBBase": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
     "rateA": 1.442,
     "rateB": 25000,
-    "pair": "0xf0696be85fa54f7a8c9f20aa98aa4409cd5c9d1b"
+    "pair": "0xf0696be85fa54f7a8c9f20aa98aa4409cd5c9d1b",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x5314bA045a459f63906Aa7C76d9F337DcB7d6995","0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
@@ -123,7 +137,9 @@
     "rewardTokenBBase": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rateA": 3.605,
     "rateB": 14000,
-    "pair": "0x2fc4dfcee8c331d54341f5668a6d9bcdd86f8e2f"
+    "pair": "0x2fc4dfcee8c331d54341f5668a6d9bcdd86f8e2f",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x42d61D766B85431666B39B89C43011f24451bFf6","0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
@@ -137,7 +153,9 @@
     "rewardTokenBBase": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rateA": 2.124,
     "rateB": 9146,
-    "pair": "0x7afc060acca7ec6985d982dd85cc62b111cac7a7"
+    "pair": "0x7afc060acca7ec6985d982dd85cc62b111cac7a7",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x8192759Bf7f247cC92F74E39B3A4225516624fC1","0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
@@ -151,7 +169,9 @@
     "rewardTokenBBase": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rateA": 1.384,
     "rateB": 28125,
-    "pair": "0xe6672538c35508b011b82c986b8822ecf26b1cbc"
+    "pair": "0xe6672538c35508b011b82c986b8822ecf26b1cbc",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x91c89A94567980f0e9723b487b0beD586eE96aa7","0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619"],
@@ -165,7 +185,9 @@
     "rewardTokenBBase": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
     "rateA": 1.334,
     "rateB": 490,
-    "pair": "0x7e02a82a9f2b96ee2836c5c64c44e0ab13020f4b"
+    "pair": "0x7e02a82a9f2b96ee2836c5c64c44e0ab13020f4b",
+    "sponsored": false,
+    "link": ""
   }
 ]
   

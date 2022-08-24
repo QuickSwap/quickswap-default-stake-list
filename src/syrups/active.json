@@ -8,7 +8,9 @@
     "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rate": 25000,
     "ending": 1665619534,
-    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
+    "sponsored": false,
+    "link": ""
   },
   {
     "token": "0x346404079b3792a6c548B072B9C4DDdFb92948d5",
@@ -19,7 +21,9 @@
     "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rate": 3687.48,
     "ending": 1665619534,
-    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
+    "sponsored": false,
+    "link": ""
   },
   {
     "token": "0xDfCe1e99A31C4597a3f8A8945cBfa9037655e335",
@@ -30,7 +34,9 @@
     "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rate": 576.7,
     "ending": 1675019177,
-    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
+    "sponsored": false,
+    "link": ""
   },
   {
     "token": "0xE06Bd4F5aAc8D0aA337D13eC88dB6defC6eAEefE",
@@ -41,7 +47,9 @@
     "baseToken": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
     "rate": 2666.666667,
     "ending": 1661042020,
-    "stakingToken": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13"
+    "stakingToken": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+    "sponsored": false,
+    "link": ""
   },
   {
     "token": "0x8063037ea50E4a066bF1430EA1E3e609CD5cEf6B",
@@ -52,7 +60,9 @@
     "baseToken": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
     "rate": 58.89,
     "ending": 1664237536,
-    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
+    "sponsored": false,
+    "link": ""
   },
   {
     "token": "0x011734f6Ed20E8D011d85Cf7894814B897420acf",
@@ -63,6 +73,8 @@
     "baseToken": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
     "rate": 150001.1111,
     "ending": 1664237536,
-    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
+    "sponsored": false,
+    "link": ""
   }
 ]

@@ -11,7 +11,9 @@
   "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
   "rateA": 17.08,
   "rateB": 200,
-  "pair": "0xadbf1854e5883eb8aa7baf50705338739e558e5b"
+  "pair": "0xadbf1854e5883eb8aa7baf50705338739e558e5b",
+  "sponsored": false,
+  "link": ""
   },
   {
     "tokens": ["0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"],
@@ -25,7 +27,9 @@
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rateA": 7.93,
     "rateB": 150,
-    "pair": "0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827"
+    "pair": "0x6e7a5fafcec6bb1e78bae2a1f0b612012bf14827",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","0xB5C064F955D8e7F38fE0460C556a72987494eE17"],
@@ -39,7 +43,9 @@
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rateA": 7.32,
     "rateB": 50,
-    "pair": "0xf3eb2f17eafbf35e92c965a954c6e7693187057d"
+    "pair": "0xf3eb2f17eafbf35e92c965a954c6e7693187057d",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","0xc2132D05D31c914a87C6611C10748AEb04B58e8F"],
@@ -53,7 +59,9 @@
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rateA": 4.88,
     "rateB": 50,
-    "pair": "0x604229c960e5cacf2aaeac8be68ac07ba9df81c3"
+    "pair": "0x604229c960e5cacf2aaeac8be68ac07ba9df81c3",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270","0xfa68FB4628DFF1028CFEc22b4162FCcd0d45efb6"],
@@ -67,7 +75,9 @@
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rateA": 4.88,
     "rateB": 3600,
-    "pair": "0xb0e69f24982791dd49e316313fd3a791020b8bf7"
+    "pair": "0xb0e69f24982791dd49e316313fd3a791020b8bf7",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0x3A58a54C066FdC0f2D55FC9C89F0415C92eBf3C4","0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
@@ -81,7 +91,9 @@
     "rewardTokenBBase": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
     "rateA": 4.88,
     "rateB": 1330,
-    "pair": "0x65752c54d9102bdfd69d351e1838a1be83c924c6"
+    "pair": "0x65752c54d9102bdfd69d351e1838a1be83c924c6",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": ["0xc2A45FE7d40bCAc8369371B08419DDAFd3131b4a","0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
@@ -95,6 +107,8 @@
     "rewardTokenB": "0xc2A45FE7d40bCAc8369371B08419DDAFd3131b4a",
     "rateA": 1.83,
     "rateB": 80000,
-    "pair": "0xaab5254e17380511887aaba7e96a5339a519e26a"
+    "pair": "0xaab5254e17380511887aaba7e96a5339a519e26a",
+    "sponsored": false,
+    "link": ""
   }
 ]

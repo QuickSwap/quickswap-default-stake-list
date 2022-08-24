@@ -10,7 +10,9 @@
     "name": "",
     "baseToken": "0x8f3Cf7ad23Cd3CaDbD9735AFf958023239c6A063",
     "rate": 0,
-    "pair": "0xf04adBF75cDFc5eD26eeA4bbbb991DB002036Bdd"
+    "pair": "0xf04adBF75cDFc5eD26eeA4bbbb991DB002036Bdd",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": [ "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619", "0xee7666aACAEFaa6efeeF62ea40176d3eB21953B9" ],
@@ -20,7 +22,9 @@
     "name": "",
     "baseToken": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
     "rate": 0,
-    "pair": "0xe90056B377CbbB477E3950505cCBD8d00B9cDc75"
+    "pair": "0xe90056B377CbbB477E3950505cCBD8d00B9cDc75",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": [ "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", "0xf4C83080E80AE530d6f8180572cBbf1Ac9D5d435" ],
@@ -30,7 +34,9 @@
     "name": "",
     "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rate": 0,
-    "pair": "0x3B480d50b9ed88B4891e066681467a73F78d8c22"
+    "pair": "0x3B480d50b9ed88B4891e066681467a73F78d8c22",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": [ "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", "0x1eBA4B44C4F8cc2695347C6a78F0B7a002d26413" ],
@@ -40,7 +46,9 @@
     "name": "",
     "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rate": 0,
-    "pair": "0x55a08B3c363a2Cc61A07d54B52FEe201bd4eC0dC"
+    "pair": "0x55a08B3c363a2Cc61A07d54B52FEe201bd4eC0dC",
+    "sponsored": false,
+    "link": ""
   },
   {
     "tokens": [ "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", "0x123706cDD8e60324e610E9A2CC7012D0F45A5b8E" ],
@@ -50,7 +58,9 @@
     "name": "",
     "baseToken": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
     "rate": 0,
-    "pair": "0xADBd183ff04FF3dc9cd980F07b308c25dF77E860"
+    "pair": "0xADBd183ff04FF3dc9cd980F07b308c25dF77E860",
+    "sponsored": false,
+    "link": ""
   },
   {
   "tokens": [ "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", "0x146e58D34EaB0bFf7e0a63cfe9332908d680c667" ],
@@ -60,7 +70,9 @@
   "name": "",
   "baseToken": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
   "rate": 0,
-  "pair": "0xEBcA34c9Fc0be6a37dEAF62DDd064941f53Ed246"
+  "pair": "0xEBcA34c9Fc0be6a37dEAF62DDd064941f53Ed246",
+  "sponsored": false,
+  "link": ""
 },
 {
   "tokens": [ "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", "0x8f006D1e1D9dC6C98996F50a4c810F17a47fBF19" ],
@@ -70,7 +82,9 @@
   "name": "",
   "baseToken": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
   "rate": 0,
-  "pair": "0x9646a93D64B19AD3E1A9Ea6E4c2C112a41a59d3A"
+  "pair": "0x9646a93D64B19AD3E1A9Ea6E4c2C112a41a59d3A",
+  "sponsored": false,
+  "link": ""
 },
 {
   "tokens": [ "0xc2132D05D31c914a87C6611C10748AEb04B58e8F", "0xE06Bd4F5aAc8D0aA337D13eC88dB6defC6eAEefE" ],
@@ -80,7 +94,9 @@
   "name": "",
   "baseToken": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
   "rate": 0,
-  "pair": "0x304e57c752E854E9A233Ae82fcC42F7568b81180"
+  "pair": "0x304e57c752E854E9A233Ae82fcC42F7568b81180",
+  "sponsored": false,
+  "link": ""
 },
 {
   "tokens": [ "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174", "0xB35fcBCF1fD489fCe02Ee146599e893FDCdC60e6" ],
@@ -90,7 +106,9 @@
   "name": "",
   "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
   "rate": 0,
-  "pair": "0x0a8A3Cb9A21C893a207826E76125eF6FaAAd99eC"
+  "pair": "0x0a8A3Cb9A21C893a207826E76125eF6FaAAd99eC",
+  "sponsored": false,
+  "link": ""
 },
 {
   "tokens": [ "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619", "0x5E430F88D1BE82EB3eF92b6fF06125168fD5DCf2" ],
@@ -100,7 +118,9 @@
   "name": "",
   "baseToken": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
   "rate": 0,
-  "pair": "0xA19460a60cb48d8c5AAa10b874F7a908E0483ea5"
+  "pair": "0xA19460a60cb48d8c5AAa10b874F7a908E0483ea5",
+  "sponsored": false,
+  "link": ""
 },
 {
   "tokens": [ "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", "0xd85d1e945766fea5eda9103f918bd915fbca63e6" ],
@@ -110,7 +130,9 @@
   "name": "",
   "baseToken": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
   "rate": 0,
-  "pair": "0x7D341B151DbFBFe97714f3EdEc98E26f2DD0e532"
+  "pair": "0x7D341B151DbFBFe97714f3EdEc98E26f2DD0e532",
+  "sponsored": false,
+  "link": ""
 },
 {
   "tokens": [ "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", "0x5314bA045a459f63906Aa7C76d9F337DcB7d6995" ],
@@ -120,7 +142,9 @@
   "name": "",
   "baseToken": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
   "rate": 0,
-  "pair": "0x2Fc4DFCEe8C331D54341f5668a6d9BCdd86F8e2f"
+  "pair": "0x2Fc4DFCEe8C331D54341f5668a6d9BCdd86F8e2f",
+  "sponsored": false,
+  "link": ""
 },
 {
   "tokens": [ "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", "0xA9536B9c75A9E0faE3B56a96AC8EdF76AbC91978" ],
@@ -130,7 +154,9 @@
   "name": "",
   "baseToken": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
   "rate": 0,
-  "pair": "0xc2ea6521F23358d18C3623d33Ce1106f798aCC64"
+  "pair": "0xc2ea6521F23358d18C3623d33Ce1106f798aCC64",
+  "sponsored": false,
+  "link": ""
 },
 {
   "tokens": [ "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270", "0x2bC07124D8dAc638E290f401046Ad584546BC47b" ],
@@ -140,5 +166,7 @@
   "name": "",
   "baseToken": "0x0d500b1d8e8ef31e21c99d1db9a6444d3adf1270",
   "rate": 0,
-  "pair": "0xc74e7A5cDbF0C916d5BFFA7B6BDDD43AB46E72Ea"
+  "pair": "0xc74e7A5cDbF0C916d5BFFA7B6BDDD43AB46E72Ea",
+  "sponsored": false,
+  "link": ""
 }]
