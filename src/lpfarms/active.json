@@ -249,13 +249,13 @@
   {
     "tokens": [
       "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7"
+      "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7"
     ],
     "stakingRewardAddress": "0x3759D7904a5A0fcdB5AA2d55D5fF1132aE4f2575",
     "ended": false,
     "lp": "0x04439eC4ba8b09acfae0E9b5D75A82cC63b19f09",
     "name": "stkGHST-USDC",
-    "baseToken": "0x385eeac5cb85a38a9a07a70c73e0a3271cfb54a7",
+    "baseToken": "0x385Eeac5cB85A38A9a07A70c73e0a3271CfB54A7",
     "rate": 0.611,
     "pair": "0x096c5ccb33cfc5732bcd1f3195c13dbefc4c82f4"
   },
