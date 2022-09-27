@@ -1,5 +1,44 @@
 [
   {
+    "token": "0xE06Bd4F5aAc8D0aA337D13eC88dB6defC6eAEefE",
+    "stakingRewardAddress": "0xF3ed4Fc825864a16CAb4b8946622222050c63f5E",
+    "ended": true,
+    "lp": "",
+    "name": "",
+    "baseToken": "0xc2132D05D31c914a87C6611C10748AEb04B58e8F",
+    "rate": 2666.666667,
+    "ending": 1661042020,
+    "stakingToken": "0x831753DD7087CaC61aB5644b308642cc1c33Dc13",
+    "sponsored": false,
+    "link": ""
+  },
+  {
+    "token": "0x8063037ea50E4a066bF1430EA1E3e609CD5cEf6B",
+    "stakingRewardAddress": "0x7b9B6F2bf9A0472761A65BACFDA97Ef3B87B170b",
+    "ended": true,
+    "lp": "",
+    "": "",
+    "baseToken": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "rate": 58.89,
+    "ending": 1664237536,
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
+    "sponsored": false,
+    "link": ""
+  },
+  {
+    "token": "0x011734f6Ed20E8D011d85Cf7894814B897420acf",
+    "stakingRewardAddress": "0x1e578D4F624A2bA8E697e0b834e48AcA856184dE",
+    "ended": true,
+    "lp": "",
+    "name": "",
+    "baseToken": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "rate": 150001.1111,
+    "ending": 1664237536,
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
+    "sponsored": false,
+    "link": ""
+  },
+  {
     "token": "0xf4C83080E80AE530d6f8180572cBbf1Ac9D5d435",
     "stakingRewardAddress": "0x834A43bB0e9a208139497ea9DA005A7973903421",
     "ended": true,
