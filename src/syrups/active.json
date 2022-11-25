@@ -15,7 +15,7 @@
   {
     "token": "0xdF7837DE1F2Fa4631D716CF2502f8b230F1dcc32",
     "stakingRewardAddress": "0x35ac26c20205f4D717325780C7666E2AB66DdC74",
-    "ended": true,
+    "ended": false,
     "lp": "",
     "name": "",
     "baseToken": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
