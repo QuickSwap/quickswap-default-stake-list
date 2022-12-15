@@ -9,7 +9,7 @@
     "lp": "",
     "name": "",
     "baseToken": "0xdfce1e99a31c4597a3f8a8945cbfa9037655e335",
-    "rate": 5.391,
+    "rate": 4.792,
     "pair": "0x01ebd3e57f4af47b7e96240e2b7b2227c902614a"
   },
   {
@@ -24,19 +24,6 @@
     "baseToken": "0xED88227296943857409A8e0f15Ad7134e70D0F73",
     "rate": 2.396,
     "pair": "0x00510ea3f8b883282d0cb497ff90f82a310fa962"
-  },
-  {
-    "tokens": [
-      "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-      "0x346404079b3792a6c548B072B9C4DDdFb92948d5"
-    ],
-    "stakingRewardAddress": "0xB92d70dbc1B57D5059E0753c36aD5Dd067BEAB5D",
-    "ended": false,
-    "lp": "",
-    "name": "",
-    "baseToken": "0x346404079b3792a6c548B072B9C4DDdFb92948d5",
-    "rate": 1.198,
-    "pair": "0x140a56f263e20ff7e0cfdef9485d849a77944b16"
   },
   {
     "tokens": [
