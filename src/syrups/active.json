@@ -1,16 +1,14 @@
 [
   {
-    "token": "0x72B6A3155EF6C5a6222f2f946A03E3f3Fd991E3c",
-    "stakingRewardAddress": "0x7c85AA0140fB72283d1C14F2597500e5E1efa243",
+    "token": "0xf9D3d8B25b95BCDA979025B74fDFa7ac3F380f9f",
+    "stakingRewardAddress": "0x665c09FC6526bd0d73A72235A1736cd63FBc4357",
     "ended": false,
     "lp": "",
     "name": "",
     "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rate": 5000,
-    "ending": 1674605296,
-    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
-    "sponsored": false,
-    "link": ""
+    "rate": 2388767061,
+    "ending": 1682625723,
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
   },
   {
     "token": "0xdF7837DE1F2Fa4631D716CF2502f8b230F1dcc32",
@@ -35,41 +33,6 @@
     "rate": 55555.55556,
     "ending": 1675264482,
     "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
-  },
-  {
-    "token": "0x0C9c7712C83B3C70e7c5E11100D33D9401BdF9dd",
-    "stakingRewardAddress": "0x2E5023e99E35b0c9C7F769cb5510B5d2995bCC38",
-    "ended": false,
-    "lp": "",
-    "name": "",
-    "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rate": 250000,
-    "ending": 1670921264,
-    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
-  },
-  {
-    "token": "0x346404079b3792a6c548B072B9C4DDdFb92948d5",
-    "stakingRewardAddress": "0x122133837a59880A7345CF2A1FA7825E0D1DB0d3",
-    "ended": false,
-    "lp": "",
-    "name": "",
-    "baseToken": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
-    "rate": 4166.666667,
-    "ending": 1670921264,
-    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
-  },
-  {
-    "token": "0x37eB60F78e06c4BB2A5F836B0Fc6BCcBbaA995b3",
-    "stakingRewardAddress": "0x12E8F02Ef789c05a14BD17E38bf8DE9Ca43E4738",
-    "ended": false,
-    "lp": "",
-    "name": "",
-    "baseToken": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
-    "rate": 31777777777.7,
-    "ending": 1668142721,
-    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17",
-    "sponsored": false,
-    "link": ""
   },
   {
     "token": "0xDfCe1e99A31C4597a3f8A8945cBfa9037655e335",
