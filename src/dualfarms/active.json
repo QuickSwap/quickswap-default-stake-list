@@ -26,8 +26,8 @@
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
     "rewardTokenB": "0x38A536A31bA4d8C1Bcca016AbBf786ecD25877E8",
-    "rateA": 1.16,
-    "rateB": 10000,
+    "rateA": 0.78,
+    "rateB": 8125,
     "pair": "0x5e1878eb8a10cc8690798ece6bfd3425e189361e",
     "sponsored": false,
     "link": ""
@@ -42,8 +42,8 @@
     "rewardTokenBBase": "0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174",
     "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
     "rewardTokenB": "0x38A536A31bA4d8C1Bcca016AbBf786ecD25877E8",
-    "rateA": 0.602,
-    "rateB": 6071,
+    "rateA": 0.42,
+    "rateB": 4375,
     "pair": "0x725307420669f89ade13505c13c8c7e73e3949dd",
     "sponsored": false,
     "link": ""
