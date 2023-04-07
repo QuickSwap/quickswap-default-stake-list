@@ -1,4 +1,16 @@
-[ {
+[ 
+  {
+    "token": "0xd125443f38a69d776177c2b9c041f462936f8218",
+    "stakingRewardAddress": "0x87BD13De5F0e53501a46497175cdd2F1ff4a05C9",
+    "ended": false,
+    "lp": "",
+    "name": "",
+    "baseToken": "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+    "rate": 1605,
+    "ending": 1685708891,
+    "stakingToken": "0xB5C064F955D8e7F38fE0460C556a72987494eE17"
+  },
+  {
    "token": "0xd0258a3fD00f38aa8090dfee343f10A9D4d30D3F",
    "stakingRewardAddress": "0x49C0b51eC81A225b92F007B3cD43A746ab71946A",
    "ended": false,
