@@ -1,4 +1,21 @@
-[{
+[
+  {
+    "tokens": ["0xc2A45FE7d40bCAc8369371B08419DDAFd3131b4a","0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270"],
+    "stakingRewardAddress": "0xaCBD412b649b55d0F3f7565293492637DE7c53Cb",
+    "ended": true,
+    "lp": "",
+    "name": "",
+    "baseToken": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "rewardTokenBBase": "0x0d500B1d8E8eF31E21C99d1Db9A6444d3ADf1270",
+    "rewardTokenA": "0xf28164A485B0B2C90639E47b0f377b4a438a16B1",
+    "rewardTokenB": "0xc2A45FE7d40bCAc8369371B08419DDAFd3131b4a",
+    "rateA": 1.204,
+    "rateB": 80000,
+    "pair": "0xaab5254e17380511887aaba7e96a5339a519e26a",
+    "sponsored": false,
+    "link": ""
+  },
+  {
   "tokens": ["0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174","0x38A536A31bA4d8C1Bcca016AbBf786ecD25877E8"],
   "stakingRewardAddress": "0x8924E1ECC95058F13348C98C5b1A0c24A907ABd7",
   "ended": true,
