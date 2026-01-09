@@ -1,6 +1,20 @@
 # @quickswap-defi/staking-list
 
-Official Quickswap staking list (Syrups, LP farms, Dual farms) for multiple chains.
+[![npm version](https://img.shields.io/npm/v/@quickswap-defi/staking-list.svg)](https://www.npmjs.com/package/@quickswap-defi/staking-list)
+[![npm downloads](https://img.shields.io/npm/dm/@quickswap-defi/staking-list.svg)](https://www.npmjs.com/package/@quickswap-defi/staking-list)
+[![License: GPL-3.0](https://img.shields.io/badge/License-GPL%203.0-blue.svg)](https://opensource.org/licenses/GPL-3.0)
+[![Security](https://img.shields.io/badge/provenance-verified-brightgreen)](https://docs.npmjs.com/generating-provenance-statements)
+
+Official QuickSwap staking list for multi-chain DeFi applications. Includes curated Syrup pools, LP farms, and Dual farms metadata for Polygon, Base, and other supported networks.
+
+---
+
+## 🚨 Migration Notice
+
+**Former package name:** `quickswap-default-staking-list-address` (deprecated)  
+**New package name:** `@quickswap-defi/staking-list`
+
+---
 
 ## Installation
 
