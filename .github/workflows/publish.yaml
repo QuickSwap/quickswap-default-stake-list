@@ -95,13 +95,19 @@ jobs:
         run: |
           set -euo pipefail
 
-          test -f "build/quickswap-default.syrups.json"
-          test -f "build/quickswap-default.lpfarms.json"
-          test -f "build/quickswap-default.dualfarms.json"
+          test -f "build/polygon.syrups.json"
+          test -f "build/polygon.lpfarms.json"
+          test -f "build/polygon.dualfarms.json"
+          test -f "build/base.syrups.json"
+          test -f "build/base.lpfarms.json"
+          test -f "build/base.dualfarms.json"
 
-          node -e "const a=require('./build/quickswap-default.syrups.json'); if(!a.name||!a.version||!a.active) throw new Error('Invalid syrups output')"
-          node -e "const a=require('./build/quickswap-default.lpfarms.json'); if(!a.name||!a.version||!a.active) throw new Error('Invalid lpfarms output')"
-          node -e "const a=require('./build/quickswap-default.dualfarms.json'); if(!a.name||!a.version||!a.active) throw new Error('Invalid dualfarms output')"
+          node -e "const a=require('./build/polygon.syrups.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid polygon syrups output')"
+          node -e "const a=require('./build/polygon.lpfarms.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid polygon lpfarms output')"
+          node -e "const a=require('./build/polygon.dualfarms.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid polygon dualfarms output')"
+          node -e "const a=require('./build/base.syrups.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid base syrups output')"
+          node -e "const a=require('./build/base.lpfarms.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid base lpfarms output')"
+          node -e "const a=require('./build/base.dualfarms.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid base dualfarms output')"
 
           echo "✅ Build validation passed"
 
