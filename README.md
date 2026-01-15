@@ -9,7 +9,7 @@ Official QuickSwap staking list for multi-chain DeFi applications. Includes cura
 
 ---
 
-## 🚨 Migration Notice
+## Migration Notice
 
 **Former package name:** `quickswap-default-staking-list-address` (deprecated)  
 **New package name:** `@quickswap-defi/staking-list`
@@ -71,34 +71,47 @@ console.log(`Closed syrups on Polygon: ${polygonSyrups.closed.length}`);
 
 ### Directory Structure
 
+All staking data is stored in unified JSON files keyed by chainId:
+
 ```text
-src/chains/
-  polygon/
-    syrups.json      # Syrup pools
-    lpfarms.json     # LP farms
-    dualfarms.json   # Dual farms
-  base/
-    syrups.json
-    lpfarms.json
-    dualfarms.json
+src/data/
+  syrups.json      # All Syrup pools (all chains)
+  lpfarms.json     # All LP farms (all chains)
+  dualfarms.json   # All Dual farms (all chains)
 ```
 
-### Syrup Pool Schema
-
-Each syrup entry requires these fields:
+Data is organized by chainId for easy navigation:
 
 ```json
 {
-  "token": "0x...",              // Reward token address
-  "stakingRewardAddress": "0x...", // Staking contract address (unique identifier)
+  "137": [
+    { "stakingRewardAddress": "0x...", ... },
+    { "stakingRewardAddress": "0x...", ... }
+  ],
+  "8453": [
+    { "stakingRewardAddress": "0x...", ... }
+  ]
+}
+```
+
+The build process reads each chain's array and generates per-chain output files.
+
+### Syrup Pool Schema
+
+Each syrup entry requires these fields (placed under the appropriate chainId key):
+
+```json
+{
+  "token": "0x...",               // Reward token address
+  "stakingRewardAddress": "0x...", // Staking contract address (unique per chain)
   "name": "Stake QUICK - Earn USDC",
-  "stakingToken": "0x...",       // Token users stake
-  "baseToken": "0x...",          // Base token for price calculation
-  "rate": 0.000002,              // Reward rate per second
-  "ending": 1764482107,          // Unix timestamp when pool ends
-  "lp": "",                      // LP token address (if applicable)
-  "sponsored": false,            // Whether pool is sponsored
-  "link": ""                     // External link (optional)
+  "stakingToken": "0x...",        // Token users stake
+  "baseToken": "0x...",           // Base token for price calculation
+  "rate": 0.000002,               // Reward rate per second
+  "ending": 1764482107,           // Unix timestamp when pool ends
+  "lp": "",                       // LP token address (if applicable)
+  "sponsored": false,             // Whether pool is sponsored
+  "link": ""                      // External link (optional)
 }
 ```
 
@@ -142,15 +155,20 @@ npm run build
 }
 ```
 
-The sync script merges `active` + `closed` into a single array — classification happens automatically at build time.
+The sync script:
+1. Adds `chainId` to each item automatically
+2. Merges into the unified data file (e.g., `src/data/syrups.json`)
+3. Preserves items from other chains
 
 #### Option 2: Edit source files directly
 
 For manual additions:
 
 ```bash
-# Edit the source file
-vim src/chains/base/syrups.json
+# Edit the unified data file
+vim src/data/syrups.json
+
+# Make sure to include chainId in each new item!
 
 # Validate and build
 npm test
@@ -177,6 +195,23 @@ Items are classified automatically at build time based on the `ending` timestamp
 
 You never need to manually move items between active/closed — just set the `ending` timestamp correctly.
 
+## Adding a New Chain
+
+To add support for a new chain:
+
+1. Add the chain configuration to `src/lib/constants.js`:
+
+```javascript
+const CHAINS = {
+  polygon: { chainId: 137, name: 'Polygon', logoURI: '...' },
+  base: { chainId: 8453, name: 'Base', logoURI: '...' },
+  newchain: { chainId: 12345, name: 'NewChain', logoURI: '...' }  // Add here
+};
+```
+
+2. Add staking items with the new `chainId` to the data files
+3. Run `npm test && npm run build` to validate
+
 ## Development
 
 ```bash
@@ -188,6 +223,9 @@ npm test
 
 # Build all lists
 npm run build
+
+# Sync from deployment file
+npm run sync -- --in <path> --chain <chain> --type <type>
 ```
 
 ## Disclaimer

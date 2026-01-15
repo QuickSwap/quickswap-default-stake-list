@@ -16,7 +16,11 @@
  *     "closed": [ { ... } ]
  *   }
  * 
- * The script merges active + closed into a single array (classification happens at build time).
+ * Data is stored in unified files keyed by chainId:
+ *   {
+ *     "137": [...polygon items...],
+ *     "8453": [...base items...]
+ *   }
  */
 
 const fs = require('fs');
@@ -93,6 +97,9 @@ function main() {
     process.exit(1);
   }
 
+  const chainConfig = CHAINS[chain];
+  const chainIdStr = String(chainConfig.chainId);
+
   // Read input file
   const absoluteInput = path.resolve(inputPath);
   if (!fs.existsSync(absoluteInput)) {
@@ -126,14 +133,24 @@ function main() {
     }
   }
 
-  // Output file
-  const outputPath = path.join(__dirname, 'chains', chain, `${type}.json`);
+  // Output file (unified data file)
+  const outputPath = path.join(__dirname, 'data', `${type}.json`);
+
+  // Create data directory if it doesn't exist
+  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
+
+  // Load existing data or create empty object
+  let dataByChain = {};
+  if (fs.existsSync(outputPath)) {
+    dataByChain = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
+  }
+
+  // Get existing items for this chain
+  const existingItems = dataByChain[chainIdStr] || [];
 
   // Merge or replace
   let finalItems = [];
-  if (merge && fs.existsSync(outputPath)) {
-    const existingItems = JSON.parse(fs.readFileSync(outputPath, 'utf8'));
-    
+  if (merge && existingItems.length > 0) {
     // Create map of existing items by stakingRewardAddress
     const existingMap = new Map();
     for (const item of existingItems) {
@@ -151,15 +168,16 @@ function main() {
     console.log(`📦 Merged ${newItems.length} items into existing ${existingItems.length} items`);
   } else {
     finalItems = newItems;
-    console.log(`📦 Replacing with ${newItems.length} items`);
+    console.log(`📦 Replacing ${chain} with ${newItems.length} items`);
   }
 
-  // Sort and write
-  const sorted = stableSort(finalItems);
-  fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-  fs.writeFileSync(outputPath, JSON.stringify(sorted, null, 2) + '\n', 'utf8');
+  // Sort and update data
+  dataByChain[chainIdStr] = stableSort(finalItems);
 
-  console.log(`✅ Wrote ${sorted.length} items → ${outputPath}`);
+  // Write back
+  fs.writeFileSync(outputPath, JSON.stringify(dataByChain, null, 2) + '\n', 'utf8');
+
+  console.log(`✅ Wrote ${finalItems.length} items for ${chainConfig.name} → ${outputPath}`);
   console.log(`\nNext steps:`);
   console.log(`  npm test        # Validate`);
   console.log(`  npm run build   # Build all lists`);
