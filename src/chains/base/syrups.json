@@ -2,12 +2,25 @@
   {
     "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
     "stakingRewardAddress": "0x9908aaDEc872687a3a0Ee842b25ac38E67833994",
-    "ended": false,
+    "ended": true,
     "name": "Stake QUICK - Earn USDC (TEST)",
     "lp": "",
     "baseToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
     "rate": 0.000002,
     "ending": 1764482107,
+    "stakingToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
+    "sponsored": false,
+    "link": ""
+  },
+  {
+    "token": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
+    "stakingRewardAddress": "0xfcd61a88B5B7D9991211Cbd89ec67e0114e5415A",
+    "ended": false,
+    "name": "Stake QUICK - Earn QUICK",
+    "lp": "",
+    "baseToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
+    "rate": 0.00011574074074074,
+    "ending": 1768903455,
     "stakingToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
     "sponsored": false,
     "link": ""
