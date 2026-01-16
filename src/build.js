@@ -1,25 +1,25 @@
 #!/usr/bin/env node
 /**
- * Build all staking lists for all chains.
+ * Build all staking lists.
  * 
  * Reads unified data files from src/data/<type>.json (keyed by chainId)
- * and outputs per-chain files to build/<chain>.<type>.json
+ * and outputs unified build files to build/<type>.json
  * 
- * Data file format:
+ * Data file format (input and output):
  *   {
- *     "137": [...polygon items...],
- *     "8453": [...base items...]
+ *     "137": { "name": "...", "active": [...], "closed": [...] },
+ *     "8453": { "name": "...", "active": [...], "closed": [...] }
  *   }
  * 
- * Example output:
- *   build/polygon.syrups.json
- *   build/polygon.lpfarms.json
- *   build/base.syrups.json
+ * Output files:
+ *   build/syrups.json
+ *   build/lpfarms.json
+ *   build/dualfarms.json
  */
 
 const fs = require('fs');
 const path = require('path');
-const { CHAINS, STAKE_TYPES, getChainKeyByChainId } = require('./lib/constants');
+const { CHAINS, STAKE_TYPES } = require('./lib/constants');
 const { buildList } = require('./lib/buildList');
 
 const DATA_DIR = path.join(__dirname, 'data');
@@ -35,6 +35,9 @@ const TYPE_NAMES = {
   dualfarms: 'Dual Farms'
 };
 
+const { version } = require('../package.json');
+const parsedVersion = version.split('.');
+
 let totalFiles = 0;
 
 for (const stakeType of STAKE_TYPES) {
@@ -49,22 +52,25 @@ for (const stakeType of STAKE_TYPES) {
   const dataByChain = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
   const typeName = TYPE_NAMES[stakeType] || stakeType;
 
-  // Build output for each chain in the data file
-  for (const [chainIdStr, chainItems] of Object.entries(dataByChain)) {
-    const chainId = parseInt(chainIdStr, 10);
-    const chainKey = getChainKeyByChainId(chainId);
-    
-    if (!chainKey) {
-      console.warn(`⚠️  Unknown chainId ${chainId} in ${stakeType}.json, skipping`);
-      continue;
-    }
+  // Build output object with all chains
+  const output = {
+    name: `Quickswap ${typeName}`,
+    timestamp: new Date().toISOString(),
+    version: {
+      major: +parsedVersion[0],
+      minor: +parsedVersion[1],
+      patch: +parsedVersion[2]
+    },
+    chains: {}
+  };
 
-    const chainConfig = CHAINS[chainKey];
+  let totalActive = 0;
+  let totalClosed = 0;
 
-    // Skip if no items for this chain
-    if (!chainItems || chainItems.length === 0) {
-      continue;
-    }
+  // Process each chain
+  for (const [chainKey, chainConfig] of Object.entries(CHAINS)) {
+    const chainIdStr = String(chainConfig.chainId);
+    const chainItems = dataByChain[chainIdStr] || [];
 
     const list = buildList({
       name: `Quickswap ${typeName} - ${chainConfig.name}`,
@@ -73,12 +79,27 @@ for (const stakeType of STAKE_TYPES) {
       items: chainItems
     });
 
-    const outputFile = path.join(BUILD_DIR, `${chainKey}.${stakeType}.json`);
-    fs.writeFileSync(outputFile, JSON.stringify(list, null, 2) + '\n', 'utf8');
+    output.chains[chainIdStr] = {
+      name: chainConfig.name,
+      chainId: chainConfig.chainId,
+      logoURI: chainConfig.logoURI,
+      active: list.active,
+      closed: list.closed
+    };
 
-    console.log(`✅ ${chainConfig.name} ${typeName}: ${list.active.length} active, ${list.closed.length} closed → ${path.basename(outputFile)}`);
-    totalFiles++;
+    totalActive += list.active.length;
+    totalClosed += list.closed.length;
+
+    if (list.active.length > 0 || list.closed.length > 0) {
+      console.log(`  📦 ${chainConfig.name}: ${list.active.length} active, ${list.closed.length} closed`);
+    }
   }
+
+  const outputFile = path.join(BUILD_DIR, `${stakeType}.json`);
+  fs.writeFileSync(outputFile, JSON.stringify(output, null, 2) + '\n', 'utf8');
+
+  console.log(`✅ ${typeName}: ${totalActive} active, ${totalClosed} closed → ${path.basename(outputFile)}`);
+  totalFiles++;
 }
 
 if (totalFiles === 0) {

@@ -31,40 +31,59 @@ npm install @quickswap-defi/staking-list
 
 ## Outputs
 
-This package publishes pre-built JSON artifacts per chain:
+This package publishes unified JSON files per staking type:
 
 ```text
 build/
-  polygon.syrups.json
-  polygon.lpfarms.json
-  polygon.dualfarms.json
-  base.syrups.json
-  base.lpfarms.json
-  base.dualfarms.json
+  syrups.json      # All Syrup pools (all chains)
+  lpfarms.json     # All LP farms (all chains)
+  dualfarms.json   # All Dual farms (all chains)
 ```
 
-Each file contains:
+Each file contains data for all supported chains:
 
 ```json
 {
-  "name": "Quickswap Syrups - Polygon",
-  "chainId": 137,
-  "timestamp": "2025-01-08T...",
-  "version": { "major": 1, "minor": 0, "patch": 0 },
-  "active": [ ... ],
-  "closed": [ ... ]
+  "name": "Quickswap Syrups",
+  "timestamp": "2025-01-15T...",
+  "version": { "major": 1, "minor": 0, "patch": 2 },
+  "chains": {
+    "137": {
+      "name": "Polygon",
+      "chainId": 137,
+      "active": [ ... ],
+      "closed": [ ... ]
+    },
+    "8453": {
+      "name": "Base",
+      "chainId": 8453,
+      "active": [ ... ],
+      "closed": [ ... ]
+    }
+  }
 }
 ```
 
 ## Usage
 
 ```javascript
-// Import specific chain/type
-const polygonSyrups = require('@quickswap-defi/staking-list/build/polygon.syrups.json');
-const baseSyrups = require('@quickswap-defi/staking-list/build/base.syrups.json');
+// Import the unified staking list
+const syrups = require('@quickswap-defi/staking-list/build/syrups.json');
+const lpfarms = require('@quickswap-defi/staking-list/build/lpfarms.json');
+const dualfarms = require('@quickswap-defi/staking-list/build/dualfarms.json');
+
+// Access by chainId
+const polygonSyrups = syrups.chains["137"];
+const baseSyrups = syrups.chains["8453"];
 
 console.log(`Active syrups on Polygon: ${polygonSyrups.active.length}`);
 console.log(`Closed syrups on Polygon: ${polygonSyrups.closed.length}`);
+console.log(`Active syrups on Base: ${baseSyrups.active.length}`);
+
+// Or iterate all chains
+for (const [chainId, chainData] of Object.entries(syrups.chains)) {
+  console.log(`${chainData.name}: ${chainData.active.length} active pools`);
+}
 ```
 
 ## Adding New Staking Data
@@ -85,16 +104,14 @@ Data is organized by chainId for easy navigation:
 ```json
 {
   "137": [
-    { "stakingRewardAddress": "0x...", ... },
-    { "stakingRewardAddress": "0x...", ... }
+    { "stakingRewardAddress": "0x...", "token": "0x...", ... },
+    { "stakingRewardAddress": "0x...", "token": "0x...", ... }
   ],
   "8453": [
-    { "stakingRewardAddress": "0x...", ... }
+    { "stakingRewardAddress": "0x...", "token": "0x...", ... }
   ]
 }
 ```
-
-The build process reads each chain's array and generates per-chain output files.
 
 ### Syrup Pool Schema
 
@@ -156,9 +173,8 @@ npm run build
 ```
 
 The sync script:
-1. Adds `chainId` to each item automatically
-2. Merges into the unified data file (e.g., `src/data/syrups.json`)
-3. Preserves items from other chains
+1. Merges into the unified data file (e.g., `src/data/syrups.json`)
+2. Preserves items from other chains
 
 #### Option 2: Edit source files directly
 
@@ -168,7 +184,7 @@ For manual additions:
 # Edit the unified data file
 vim src/data/syrups.json
 
-# Make sure to include chainId in each new item!
+# Add items under the appropriate chainId key
 
 # Validate and build
 npm test
@@ -209,7 +225,16 @@ const CHAINS = {
 };
 ```
 
-2. Add staking items with the new `chainId` to the data files
+2. Add staking items under the new chainId key in the data files:
+
+```json
+{
+  "137": [...],
+  "8453": [...],
+  "12345": [...]  // Add new chain data
+}
+```
+
 3. Run `npm test && npm run build` to validate
 
 ## Development

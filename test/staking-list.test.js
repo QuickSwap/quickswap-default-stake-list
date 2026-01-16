@@ -2,11 +2,11 @@ const { expect } = require('chai');
 const fs = require('fs');
 const path = require('path');
 const { CHAINS, STAKE_TYPES, getChainKeyByChainId } = require('../src/lib/constants');
-const { buildList } = require('../src/lib/buildList');
 
 const DATA_DIR = path.join(__dirname, '..', 'src', 'data');
+const BUILD_DIR = path.join(__dirname, '..', 'build');
 
-describe('Staking Lists', () => {
+describe('Source Data Validation', () => {
   for (const stakeType of STAKE_TYPES) {
     const inputFile = path.join(DATA_DIR, `${stakeType}.json`);
 
@@ -16,7 +16,7 @@ describe('Staking Lists', () => {
     // Load data at test definition time (synchronous)
     const dataByChain = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
 
-    describe(stakeType, () => {
+    describe(`src/data/${stakeType}.json`, () => {
       it('is a valid JSON object with chainId keys', () => {
         expect(dataByChain).to.be.an('object');
         expect(dataByChain).to.not.be.an('array');
@@ -50,55 +50,84 @@ describe('Staking Lists', () => {
           }
         }
       });
+    });
+  }
+});
 
-      // Test per-chain builds
-      for (const [chainIdStr, chainItems] of Object.entries(dataByChain)) {
-        const chainId = parseInt(chainIdStr, 10);
-        const chainKey = getChainKeyByChainId(chainId);
-        
-        if (!chainKey || chainItems.length === 0) continue;
-        
-        const chainConfig = CHAINS[chainKey];
+describe('Build Output Validation', () => {
+  // First, run build to ensure output exists
+  before(function() {
+    this.timeout(10000);
+    const { execSync } = require('child_process');
+    execSync('npm run build', { cwd: path.join(__dirname, '..'), stdio: 'pipe' });
+  });
 
-        describe(`${chainConfig.name} (chainId: ${chainConfig.chainId})`, () => {
-          let list;
+  for (const stakeType of STAKE_TYPES) {
+    const buildFile = path.join(BUILD_DIR, `${stakeType}.json`);
 
-          before(() => {
-            list = buildList({
-              name: `Test ${stakeType}`,
-              chainId: chainConfig.chainId,
-              logoURI: chainConfig.logoURI,
-              items: chainItems
-            });
+    describe(`build/${stakeType}.json`, () => {
+      let output;
+
+      before(() => {
+        output = JSON.parse(fs.readFileSync(buildFile, 'utf8'));
+      });
+
+      it('exists and is valid JSON', () => {
+        expect(fs.existsSync(buildFile)).to.be.true;
+        expect(output).to.be.an('object');
+      });
+
+      it('has required top-level fields', () => {
+        expect(output.name).to.be.a('string');
+        expect(output.timestamp).to.be.a('string');
+        expect(output.version).to.be.an('object');
+        expect(output.version.major).to.be.a('number');
+        expect(output.version.minor).to.be.a('number');
+        expect(output.version.patch).to.be.a('number');
+        expect(output.chains).to.be.an('object');
+      });
+
+      it('version matches package.json', () => {
+        const packageJson = require('../package.json');
+        const expectedVersion = packageJson.version;
+        const outputVersion = `${output.version.major}.${output.version.minor}.${output.version.patch}`;
+        expect(outputVersion).to.equal(expectedVersion);
+      });
+
+      it('contains all supported chains', () => {
+        for (const [chainKey, chainConfig] of Object.entries(CHAINS)) {
+          const chainIdStr = String(chainConfig.chainId);
+          expect(output.chains[chainIdStr], `Missing chain ${chainIdStr}`).to.be.an('object');
+        }
+      });
+
+      // Test each chain's data
+      for (const [chainKey, chainConfig] of Object.entries(CHAINS)) {
+        const chainIdStr = String(chainConfig.chainId);
+
+        describe(`chains.${chainIdStr} (${chainConfig.name})`, () => {
+          it('has correct structure', function() {
+            const chainData = output.chains[chainIdStr];
+            expect(chainData.name).to.equal(chainConfig.name);
+            expect(chainData.chainId).to.equal(chainConfig.chainId);
+            expect(chainData.active).to.be.an('array');
+            expect(chainData.closed).to.be.an('array');
           });
 
-          it('classifies items correctly by ending timestamp', () => {
+          it('classifies items correctly by ending timestamp', function() {
+            const chainData = output.chains[chainIdStr];
             const nowSeconds = Math.floor(Date.now() / 1000);
 
-            for (const item of list.active) {
-              // Active items should have no ending or ending in the future
+            for (const item of chainData.active) {
               if (typeof item.ending === 'number') {
                 expect(item.ending, `Active item should have ending >= now`).to.be.at.least(nowSeconds);
               }
             }
 
-            for (const item of list.closed) {
-              // Closed items should have ending in the past
+            for (const item of chainData.closed) {
               expect(item.ending, `Closed item should have ending field`).to.be.a('number');
               expect(item.ending, `Closed item should have ending < now`).to.be.lessThan(nowSeconds);
             }
-          });
-
-          it('version matches package.json', () => {
-            const packageJson = require('../package.json');
-            const expectedVersion = packageJson.version;
-            const listVersion = `${list.version.major}.${list.version.minor}.${list.version.patch}`;
-
-            expect(listVersion).to.equal(expectedVersion);
-          });
-
-          it('has correct chainId', () => {
-            expect(list.chainId).to.equal(chainConfig.chainId);
           });
         });
       }

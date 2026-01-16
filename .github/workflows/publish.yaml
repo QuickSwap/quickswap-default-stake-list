@@ -95,19 +95,33 @@ jobs:
         run: |
           set -euo pipefail
 
-          test -f "build/polygon.syrups.json"
-          test -f "build/polygon.lpfarms.json"
-          test -f "build/polygon.dualfarms.json"
-          test -f "build/base.syrups.json"
-          test -f "build/base.lpfarms.json"
-          test -f "build/base.dualfarms.json"
+          # Check unified output files exist
+          test -f "build/syrups.json"
+          test -f "build/lpfarms.json"
+          test -f "build/dualfarms.json"
 
-          node -e "const a=require('./build/polygon.syrups.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid polygon syrups output')"
-          node -e "const a=require('./build/polygon.lpfarms.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid polygon lpfarms output')"
-          node -e "const a=require('./build/polygon.dualfarms.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid polygon dualfarms output')"
-          node -e "const a=require('./build/base.syrups.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid base syrups output')"
-          node -e "const a=require('./build/base.lpfarms.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid base lpfarms output')"
-          node -e "const a=require('./build/base.dualfarms.json'); if(!a.name||!a.version||!a.active||!a.chainId) throw new Error('Invalid base dualfarms output')"
+          # Validate syrups.json structure
+          node -e "
+            const a=require('./build/syrups.json');
+            if(!a.name||!a.version||!a.chains) throw new Error('Invalid syrups output');
+            if(!a.chains['137']||!a.chains['8453']) throw new Error('Missing chains in syrups');
+            if(!Array.isArray(a.chains['137'].active)) throw new Error('Invalid polygon syrups');
+            if(!Array.isArray(a.chains['8453'].active)) throw new Error('Invalid base syrups');
+          "
+
+          # Validate lpfarms.json structure
+          node -e "
+            const a=require('./build/lpfarms.json');
+            if(!a.name||!a.version||!a.chains) throw new Error('Invalid lpfarms output');
+            if(!a.chains['137']||!a.chains['8453']) throw new Error('Missing chains in lpfarms');
+          "
+
+          # Validate dualfarms.json structure
+          node -e "
+            const a=require('./build/dualfarms.json');
+            if(!a.name||!a.version||!a.chains) throw new Error('Invalid dualfarms output');
+            if(!a.chains['137']||!a.chains['8453']) throw new Error('Missing chains in dualfarms');
+          "
 
           echo "✅ Build validation passed"
 

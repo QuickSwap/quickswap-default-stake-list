@@ -2,7 +2,7 @@
   "name": "@quickswap-defi/staking-list",
   "version": "1.0.2",
   "description": "Official Quickswap default staking list (Syrups, LP farms, Dual farms)",
-  "main": "build/polygon.syrups.json",
+  "main": "build/syrups.json",
   "scripts": {
     "test": "mocha",
     "build": "rimraf build && node src/build.js",
@@ -20,7 +20,8 @@
     "farm",
     "list",
     "polygon",
-    "base"
+    "base",
+    "multichain"
   ],
   "author": "QuickSwap",
   "license": "GPL-3.0-or-later",
