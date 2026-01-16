@@ -1,59 +1,75 @@
 const { expect } = require('chai');
 const fs = require('fs');
 const path = require('path');
-const { CHAINS, STAKE_TYPES } = require('../src/lib/constants');
+const { CHAINS, STAKE_TYPES, getChainKeyByChainId } = require('../src/lib/constants');
 const { buildList } = require('../src/lib/buildList');
 
-const SRC_DIR = path.join(__dirname, '..', 'src', 'chains');
+const DATA_DIR = path.join(__dirname, '..', 'src', 'data');
 
 describe('Staking Lists', () => {
-  for (const [chainKey, chainConfig] of Object.entries(CHAINS)) {
-    const chainDir = path.join(SRC_DIR, chainKey);
+  for (const stakeType of STAKE_TYPES) {
+    const inputFile = path.join(DATA_DIR, `${stakeType}.json`);
 
-    // Skip chains without data
-    if (!fs.existsSync(chainDir)) continue;
+    // Skip types without data file
+    if (!fs.existsSync(inputFile)) continue;
 
-    describe(`${chainConfig.name} (chainId: ${chainConfig.chainId})`, () => {
-      for (const stakeType of STAKE_TYPES) {
-        const inputFile = path.join(chainDir, `${stakeType}.json`);
+    // Load data at test definition time (synchronous)
+    const dataByChain = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
 
-        // Skip types without data
-        if (!fs.existsSync(inputFile)) continue;
+    describe(stakeType, () => {
+      it('is a valid JSON object with chainId keys', () => {
+        expect(dataByChain).to.be.an('object');
+        expect(dataByChain).to.not.be.an('array');
+      });
 
-        describe(stakeType, () => {
-          let items;
+      it('all chainId keys are valid and exist in CHAINS', () => {
+        const validChainIds = Object.values(CHAINS).map(c => String(c.chainId));
+        for (const chainIdStr of Object.keys(dataByChain)) {
+          expect(validChainIds, `Invalid chainId key: ${chainIdStr}`).to.include(chainIdStr);
+        }
+      });
+
+      it('all chain arrays contain valid items with stakingRewardAddress', () => {
+        for (const [chainIdStr, items] of Object.entries(dataByChain)) {
+          expect(items, `${chainIdStr} should be an array`).to.be.an('array');
+          
+          for (const [idx, item] of items.entries()) {
+            expect(item.stakingRewardAddress, `Chain ${chainIdStr} item ${idx} missing stakingRewardAddress`).to.be.a('string');
+            expect(item.stakingRewardAddress.length, `Chain ${chainIdStr} item ${idx} has empty stakingRewardAddress`).to.be.greaterThan(0);
+          }
+        }
+      });
+
+      it('contains no duplicate stakingRewardAddress within each chain', () => {
+        for (const [chainIdStr, items] of Object.entries(dataByChain)) {
+          const seen = new Set();
+          for (const item of items) {
+            const addr = item.stakingRewardAddress?.toLowerCase();
+            expect(seen.has(addr), `Chain ${chainIdStr} has duplicate: ${addr}`).to.be.false;
+            seen.add(addr);
+          }
+        }
+      });
+
+      // Test per-chain builds
+      for (const [chainIdStr, chainItems] of Object.entries(dataByChain)) {
+        const chainId = parseInt(chainIdStr, 10);
+        const chainKey = getChainKeyByChainId(chainId);
+        
+        if (!chainKey || chainItems.length === 0) continue;
+        
+        const chainConfig = CHAINS[chainKey];
+
+        describe(`${chainConfig.name} (chainId: ${chainConfig.chainId})`, () => {
           let list;
 
           before(() => {
-            items = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
             list = buildList({
               name: `Test ${stakeType}`,
               chainId: chainConfig.chainId,
               logoURI: chainConfig.logoURI,
-              items
+              items: chainItems
             });
-          });
-
-          it('contains no duplicate stakingRewardAddress', () => {
-            const seen = new Set();
-            const allItems = [...list.active, ...list.closed];
-
-            for (const item of allItems) {
-              const addr = item.stakingRewardAddress?.toLowerCase();
-              if (!addr) continue;
-
-              expect(seen.has(addr), `Duplicate stakingRewardAddress: ${addr}`).to.be.false;
-              seen.add(addr);
-            }
-          });
-
-          it('all items have required stakingRewardAddress field', () => {
-            const allItems = [...list.active, ...list.closed];
-
-            for (const [idx, item] of allItems.entries()) {
-              expect(item.stakingRewardAddress, `Item ${idx} missing stakingRewardAddress`).to.be.a('string');
-              expect(item.stakingRewardAddress.length, `Item ${idx} has empty stakingRewardAddress`).to.be.greaterThan(0);
-            }
           });
 
           it('classifies items correctly by ending timestamp', () => {

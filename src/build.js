@@ -2,10 +2,16 @@
 /**
  * Build all staking lists for all chains.
  * 
- * Outputs:
- *   build/<chain>.<type>.json
+ * Reads unified data files from src/data/<type>.json (keyed by chainId)
+ * and outputs per-chain files to build/<chain>.<type>.json
  * 
- * Example:
+ * Data file format:
+ *   {
+ *     "137": [...polygon items...],
+ *     "8453": [...base items...]
+ *   }
+ * 
+ * Example output:
  *   build/polygon.syrups.json
  *   build/polygon.lpfarms.json
  *   build/base.syrups.json
@@ -13,10 +19,10 @@
 
 const fs = require('fs');
 const path = require('path');
-const { CHAINS, STAKE_TYPES } = require('./lib/constants');
+const { CHAINS, STAKE_TYPES, getChainKeyByChainId } = require('./lib/constants');
 const { buildList } = require('./lib/buildList');
 
-const SRC_DIR = path.join(__dirname, 'chains');
+const DATA_DIR = path.join(__dirname, 'data');
 const BUILD_DIR = path.join(__dirname, '..', 'build');
 
 // Ensure build directory exists
@@ -31,31 +37,40 @@ const TYPE_NAMES = {
 
 let totalFiles = 0;
 
-for (const [chainKey, chainConfig] of Object.entries(CHAINS)) {
-  const chainDir = path.join(SRC_DIR, chainKey);
+for (const stakeType of STAKE_TYPES) {
+  const inputFile = path.join(DATA_DIR, `${stakeType}.json`);
 
-  // Skip if chain directory doesn't exist
-  if (!fs.existsSync(chainDir)) {
-    console.log(`⏭️  Skipping ${chainConfig.name}: no data directory`);
+  // Skip if file doesn't exist
+  if (!fs.existsSync(inputFile)) {
+    console.log(`⏭️  Skipping ${stakeType}: no data file`);
     continue;
   }
 
-  for (const stakeType of STAKE_TYPES) {
-    const inputFile = path.join(chainDir, `${stakeType}.json`);
+  const dataByChain = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
+  const typeName = TYPE_NAMES[stakeType] || stakeType;
 
-    // Skip if file doesn't exist
-    if (!fs.existsSync(inputFile)) {
+  // Build output for each chain in the data file
+  for (const [chainIdStr, chainItems] of Object.entries(dataByChain)) {
+    const chainId = parseInt(chainIdStr, 10);
+    const chainKey = getChainKeyByChainId(chainId);
+    
+    if (!chainKey) {
+      console.warn(`⚠️  Unknown chainId ${chainId} in ${stakeType}.json, skipping`);
       continue;
     }
 
-    const items = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
-    const typeName = TYPE_NAMES[stakeType] || stakeType;
+    const chainConfig = CHAINS[chainKey];
+
+    // Skip if no items for this chain
+    if (!chainItems || chainItems.length === 0) {
+      continue;
+    }
 
     const list = buildList({
       name: `Quickswap ${typeName} - ${chainConfig.name}`,
       chainId: chainConfig.chainId,
       logoURI: chainConfig.logoURI,
-      items
+      items: chainItems
     });
 
     const outputFile = path.join(BUILD_DIR, `${chainKey}.${stakeType}.json`);
@@ -67,7 +82,7 @@ for (const [chainKey, chainConfig] of Object.entries(CHAINS)) {
 }
 
 if (totalFiles === 0) {
-  console.error('❌ No staking data found. Check src/chains/<chain>/<type>.json files.');
+  console.error('❌ No staking data found. Check src/data/<type>.json files.');
   process.exit(1);
 }
 
