@@ -1,0 +1,178 @@
+# Auto-Sync Syrup Pools from syrup-staking-contract
+#
+# Triggered by repository_dispatch from syrup-staking-contract when
+# deployment files change. Creates a PR with the updated staking data.
+#
+# SETUP REQUIRED:
+# This workflow is triggered by syrup-staking-contract. See that repo's
+# .github/workflows/sync-stake-list.yml for setup instructions.
+
+name: Auto-Sync Syrups
+
+on:
+  repository_dispatch:
+    types: [sync-syrups]
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      networks:
+        description: "Networks to sync (comma-separated: base,polygon)"
+        required: false
+        default: "base"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  sync-and-create-pr:
+    name: 🔄 Sync & Create PR
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout this repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout syrup-staking-contract
+        uses: actions/checkout@v4
+        with:
+          repository: QuickSwap/syrup-staking-contract
+          ref: main
+          path: syrup-staking-contract
+          sparse-checkout: |
+            deployments
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Determine networks to sync
+        id: networks
+        run: |
+          # Get networks from dispatch payload or workflow input
+          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
+            NETWORKS="${{ github.event.client_payload.networks }}"
+          else
+            NETWORKS="${{ inputs.networks }}"
+          fi
+          
+          # Default to base if empty
+          if [ -z "$NETWORKS" ]; then
+            NETWORKS="base"
+          fi
+          
+          echo "networks=$NETWORKS" >> $GITHUB_OUTPUT
+          echo "Syncing networks: $NETWORKS"
+
+      - name: Sync syrup data
+        id: sync
+        run: |
+          NETWORKS="${{ steps.networks.outputs.networks }}"
+          SYNCED=""
+          
+          # Process each network
+          for network in $(echo "$NETWORKS" | tr ',' ' '); do
+            INPUT_FILE="syrup-staking-contract/deployments/syrup-${network}.json"
+            
+            if [ -f "$INPUT_FILE" ]; then
+              echo "📦 Syncing $network..."
+              node src/sync.js --in "$INPUT_FILE" --chain "$network" --type syrups
+              SYNCED="${SYNCED}${network},"
+            else
+              echo "⚠️ File not found: $INPUT_FILE"
+            fi
+          done
+          
+          # Remove trailing comma
+          SYNCED="${SYNCED%,}"
+          echo "synced_networks=$SYNCED" >> $GITHUB_OUTPUT
+          
+          if [ -z "$SYNCED" ]; then
+            echo "No networks synced"
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Synced: $SYNCED"
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build staking lists
+        if: steps.sync.outputs.has_changes == 'true'
+        run: npm run build
+
+      - name: Run tests
+        if: steps.sync.outputs.has_changes == 'true'
+        run: npm test
+
+      - name: Check for changes
+        id: git_status
+        run: |
+          if git diff --quiet src/data/; then
+            echo "No changes in source data"
+            echo "has_diff=false" >> $GITHUB_OUTPUT
+          else
+            echo "Changes detected in source data"
+            echo "has_diff=true" >> $GITHUB_OUTPUT
+            
+            # Get summary of changes
+            CHANGES=$(git diff --stat src/data/ | tail -1)
+            echo "changes_summary=$CHANGES" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create Pull Request
+        if: steps.git_status.outputs.has_diff == 'true'
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: "chore: sync syrup pools from deployment"
+          title: "🔄 Sync Syrup Pools (${{ steps.sync.outputs.synced_networks }})"
+          body: |
+            ## 🔄 Automated Syrup Pool Sync
+            
+            This PR was automatically created by the sync workflow.
+            
+            ### Source
+            - **Repository:** `${{ github.event.client_payload.source_repo || 'QuickSwap/syrup-staking-contract' }}`
+            - **Commit:** `${{ github.event.client_payload.source_sha || 'manual trigger' }}`
+            - **Networks:** ${{ steps.sync.outputs.synced_networks }}
+            
+            ### Changes
+            ${{ steps.git_status.outputs.changes_summary }}
+            
+            ### Verification
+            - [x] Sync completed successfully
+            - [x] Tests passed
+            - [x] Build successful
+            
+            ---
+            
+            > 🤖 This PR was created automatically. Review the changes and merge when ready.
+            > 
+            > After merging, run `npm run build` and publish a new version if needed.
+          branch: auto-sync/syrups
+          delete-branch: true
+          labels: |
+            automated
+            sync
+            syrups
+
+      - name: Summary
+        run: |
+          echo "## 🔄 Sync Complete" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.git_status.outputs.has_diff }}" == "true" ]; then
+            echo "✅ **PR Created:** A pull request has been created with the synced data." >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Networks synced:** ${{ steps.sync.outputs.synced_networks }}" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "ℹ️ **No changes:** The staking data is already up to date." >> $GITHUB_STEP_SUMMARY
+          fi
