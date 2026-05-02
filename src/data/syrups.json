@@ -509,6 +509,19 @@
   ],
   "8453": [
     {
+      "token": "0x1396aA964C6f8C8c860CE6268a7C9BAfB914e753",
+      "stakingRewardAddress": "0x3f10a5343d8c2Df7E0C4964582Df78B0534117fE",
+      "ended": false,
+      "name": "Stake QUICK - Earn SPRK",
+      "lp": "",
+      "baseToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
+      "rate": 0.11574074074074074,
+      "ending": 1780283209,
+      "stakingToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
+      "sponsored": true,
+      "link": "https://sparkdex.ai/bridge"
+    },
+    {
       "token": "0x833589fCD6eDb6E08f4c7C32D4f71b54bdA02913",
       "stakingRewardAddress": "0x9908aaDEc872687a3a0Ee842b25ac38E67833994",
       "ended": true,
@@ -528,8 +541,8 @@
       "name": "Stake QUICK - Earn QUICK",
       "lp": "",
       "baseToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
-      "rate": 0.12518505026914314,
-      "ending": 1777557813,
+      "rate": 0.12731481481481483,
+      "ending": 1778770383,
       "stakingToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
       "sponsored": false,
       "link": ""
