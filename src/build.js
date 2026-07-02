@@ -1,16 +1,16 @@
 #!/usr/bin/env node
 /**
  * Build all staking lists.
- * 
+ *
  * Reads unified data files from src/data/<type>.json (keyed by chainId)
  * and outputs unified build files to build/<type>.json
- * 
+ *
  * Data file format (input and output):
  *   {
- *     "137": { "name": "...", "active": [...], "closed": [...] },
- *     "8453": { "name": "...", "active": [...], "closed": [...] }
+ *     "137": [ ...items... ],
+ *     "8453": [ ...items... ]
  *   }
- * 
+ *
  * Output files:
  *   build/syrups.json
  *   build/lpfarms.json
@@ -25,10 +25,8 @@ const { buildList } = require('./lib/buildList');
 const DATA_DIR = path.join(__dirname, 'data');
 const BUILD_DIR = path.join(__dirname, '..', 'build');
 
-// Ensure build directory exists
 fs.mkdirSync(BUILD_DIR, { recursive: true });
 
-// Type display names
 const TYPE_NAMES = {
   syrups: 'Syrups',
   lpfarms: 'LP Farms',
@@ -36,14 +34,13 @@ const TYPE_NAMES = {
 };
 
 const { version } = require('../package.json');
-const parsedVersion = version.split('.');
+const parsedVersion = version.split('-')[0].split('.');
 
 let totalFiles = 0;
 
 for (const stakeType of STAKE_TYPES) {
   const inputFile = path.join(DATA_DIR, `${stakeType}.json`);
 
-  // Skip if file doesn't exist
   if (!fs.existsSync(inputFile)) {
     console.log(`⏭️  Skipping ${stakeType}: no data file`);
     continue;
@@ -52,7 +49,6 @@ for (const stakeType of STAKE_TYPES) {
   const dataByChain = JSON.parse(fs.readFileSync(inputFile, 'utf8'));
   const typeName = TYPE_NAMES[stakeType] || stakeType;
 
-  // Build output object with all chains
   const output = {
     name: `Quickswap ${typeName}`,
     timestamp: new Date().toISOString(),
@@ -67,7 +63,6 @@ for (const stakeType of STAKE_TYPES) {
   let totalActive = 0;
   let totalClosed = 0;
 
-  // Process each chain
   for (const [chainKey, chainConfig] of Object.entries(CHAINS)) {
     const chainIdStr = String(chainConfig.chainId);
     const chainItems = dataByChain[chainIdStr] || [];

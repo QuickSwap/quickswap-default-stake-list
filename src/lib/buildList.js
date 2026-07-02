@@ -17,7 +17,7 @@ const { version } = require('../../package.json');
  * @returns {Object} Formatted list with active/closed arrays
  */
 function buildList({ name, chainId, logoURI, items }) {
-  const parsed = version.split('.');
+  const parsed = version.split('-')[0].split('.');
   const nowSeconds = Math.floor(Date.now() / 1000);
 
   const active = [];
