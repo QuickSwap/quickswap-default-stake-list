@@ -24,9 +24,6 @@ function buildList({ name, chainId, logoURI, items }) {
   const closed = [];
 
   for (const item of items) {
-    // Classify by `ending` timestamp
-    // If no `ending` or `ending` is in the future → active
-    // If `ending` is in the past → closed
     const ending = item.ending;
     const isEnded = typeof ending === 'number' && ending < nowSeconds;
 

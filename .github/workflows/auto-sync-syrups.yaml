@@ -73,14 +73,12 @@ jobs:
           CLIENT_NETWORKS: ${{ github.event.client_payload.networks }}
           INPUT_NETWORKS: ${{ inputs.networks }}
         run: |
-          # Get networks from dispatch payload or workflow input
           if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
             NETWORKS="$CLIENT_NETWORKS"
           else
             NETWORKS="$INPUT_NETWORKS"
           fi
           
-          # Default to base if empty
           if [ -z "$NETWORKS" ]; then
             NETWORKS="base"
           fi
@@ -95,8 +93,7 @@ jobs:
         run: |
           NETWORKS="$STEP_NETWORKS"
           SYNCED=""
-          
-          # Process each network
+
           for network in $(echo "$NETWORKS" | tr ',' ' '); do
             INPUT_FILE="syrup-staking-contract/deployments/syrup-${network}.json"
             
