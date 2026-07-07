@@ -28,9 +28,7 @@ on:
       - "v*.*.*"
 
 permissions:
-  contents: write
-  id-token: write
-  pull-requests: read
+  contents: read
 
 jobs:
   security-audit:
@@ -40,12 +38,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Setup Node.js 20 LTS
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "20"
           cache: "npm"
@@ -74,10 +72,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js 20 LTS
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "20"
           cache: "npm"
@@ -132,18 +130,21 @@ jobs:
     if: github.event_name == 'workflow_dispatch' && !inputs.dry_run
     timeout-minutes: 5
 
+    permissions:
+      contents: write
+
     outputs:
       new_version: ${{ steps.bump.outputs.new_version }}
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "20"
 
@@ -179,13 +180,17 @@ jobs:
       )
     timeout-minutes: 10
 
+    permissions:
+      contents: write
+      id-token: write
+
     environment:
       name: npm-production
       url: https://www.npmjs.com/package/@quickswap-defi/staking-list
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
@@ -209,7 +214,7 @@ jobs:
           fi
 
       - name: Setup Node.js with NPM registry
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "24" # Node 24 required for OIDC publishing (npm/cli#8730)
           registry-url: "https://registry.npmjs.org/"
@@ -266,7 +271,7 @@ jobs:
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@3bb12739c298aeb8a4eeaf626c5b8d85266b0e65 # v2
         with:
           tag_name: v${{ steps.version.outputs.version }}
           name: v${{ steps.version.outputs.version }}

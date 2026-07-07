@@ -44,12 +44,12 @@ jobs:
           repositories: syrup-staking-contract
 
       - name: Checkout this repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Checkout syrup-staking-contract
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           repository: QuickSwap/syrup-staking-contract
           token: ${{ steps.app-token.outputs.token }}
@@ -59,7 +59,7 @@ jobs:
             deployments
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "20"
           cache: "npm"
@@ -69,15 +69,16 @@ jobs:
 
       - name: Determine networks to sync
         id: networks
+        env:
+          CLIENT_NETWORKS: ${{ github.event.client_payload.networks }}
+          INPUT_NETWORKS: ${{ inputs.networks }}
         run: |
-          # Get networks from dispatch payload or workflow input
           if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
-            NETWORKS="${{ github.event.client_payload.networks }}"
+            NETWORKS="$CLIENT_NETWORKS"
           else
-            NETWORKS="${{ inputs.networks }}"
+            NETWORKS="$INPUT_NETWORKS"
           fi
           
-          # Default to base if empty
           if [ -z "$NETWORKS" ]; then
             NETWORKS="base"
           fi
@@ -87,11 +88,12 @@ jobs:
 
       - name: Sync syrup data
         id: sync
+        env:
+          STEP_NETWORKS: ${{ steps.networks.outputs.networks }}
         run: |
-          NETWORKS="${{ steps.networks.outputs.networks }}"
+          NETWORKS="$STEP_NETWORKS"
           SYNCED=""
-          
-          # Process each network
+
           for network in $(echo "$NETWORKS" | tr ',' ' '); do
             INPUT_FILE="syrup-staking-contract/deployments/syrup-${network}.json"
             
@@ -141,7 +143,7 @@ jobs:
 
       - name: Create Pull Request
         if: steps.git_status.outputs.has_diff == 'true'
-        uses: peter-evans/create-pull-request@v7
+        uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "chore: sync syrup pools from deployment"
@@ -177,14 +179,16 @@ jobs:
             syrups
 
       - name: Summary
+        env:
+          SYNCED_NETWORKS: ${{ steps.sync.outputs.synced_networks }}
         run: |
           echo "## 🔄 Sync Complete" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
-          
+
           if [ "${{ steps.git_status.outputs.has_diff }}" == "true" ]; then
             echo "✅ **PR Created:** A pull request has been created with the synced data." >> $GITHUB_STEP_SUMMARY
             echo "" >> $GITHUB_STEP_SUMMARY
-            echo "**Networks synced:** ${{ steps.sync.outputs.synced_networks }}" >> $GITHUB_STEP_SUMMARY
+            echo "**Networks synced:** $SYNCED_NETWORKS" >> $GITHUB_STEP_SUMMARY
           else
             echo "ℹ️ **No changes:** The staking data is already up to date." >> $GITHUB_STEP_SUMMARY
           fi

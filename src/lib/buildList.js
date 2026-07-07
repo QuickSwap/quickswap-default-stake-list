@@ -17,16 +17,13 @@ const { version } = require('../../package.json');
  * @returns {Object} Formatted list with active/closed arrays
  */
 function buildList({ name, chainId, logoURI, items }) {
-  const parsed = version.split('.');
+  const parsed = version.split('-')[0].split('.');
   const nowSeconds = Math.floor(Date.now() / 1000);
 
   const active = [];
   const closed = [];
 
   for (const item of items) {
-    // Classify by `ending` timestamp
-    // If no `ending` or `ending` is in the future → active
-    // If `ending` is in the past → closed
     const ending = item.ending;
     const isEnded = typeof ending === 'number' && ending < nowSeconds;
 
