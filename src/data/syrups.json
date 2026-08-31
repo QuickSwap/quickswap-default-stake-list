@@ -515,8 +515,8 @@
       "name": "Stake QUICK - Earn SPRK",
       "lp": "",
       "baseToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
-      "rate": 0.05787037037037037,
-      "ending": 1785560801,
+      "rate": 0.038580246913580245,
+      "ending": 1790774927,
       "stakingToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
       "sponsored": true,
       "link": "https://sparkdex.ai/bridge"
@@ -541,8 +541,8 @@
       "name": "Stake QUICK - Earn QUICK",
       "lp": "",
       "baseToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
-      "rate": 0.2370981989760925,
-      "ending": 1786073417,
+      "rate": 0.2085737231009945,
+      "ending": 1788505333,
       "stakingToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
       "sponsored": false,
       "link": ""
