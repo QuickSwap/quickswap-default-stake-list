@@ -24,8 +24,7 @@ on:
         default: "base"
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   sync-and-create-pr:
@@ -34,32 +33,35 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Generate App Token
-        uses: actions/create-github-app-token@v2
-        id: app-token
+      - name: Generate read token for syrup-staking-contract
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2.2.2
+        id: source-token
         with:
           app-id: ${{ secrets.SYNC_APP_ID }}
           private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
           owner: QuickSwap
           repositories: syrup-staking-contract
+          permission-contents: read
 
       - name: Checkout this repository
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Checkout syrup-staking-contract
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
         with:
           repository: QuickSwap/syrup-staking-contract
-          token: ${{ steps.app-token.outputs.token }}
+          token: ${{ steps.source-token.outputs.token }}
           ref: main
           path: syrup-staking-contract
+          persist-credentials: false
           sparse-checkout: |
             deployments
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5.0.0
         with:
           node-version: "20"
           cache: "npm"
@@ -141,11 +143,23 @@ jobs:
             echo "changes_summary=$CHANGES" >> $GITHUB_OUTPUT
           fi
 
+      - name: Generate PR token for this repository
+        if: steps.git_status.outputs.has_diff == 'true'
+        uses: actions/create-github-app-token@fee1f7d63c2ff003460e3d139729b119787bc349 # v2.2.2
+        id: pr-token
+        with:
+          app-id: ${{ secrets.SYNC_APP_ID }}
+          private-key: ${{ secrets.SYNC_APP_PRIVATE_KEY }}
+          owner: QuickSwap
+          repositories: quickswap-default-stake-list
+          permission-contents: write
+          permission-pull-requests: write
+
       - name: Create Pull Request
         if: steps.git_status.outputs.has_diff == 'true'
         uses: peter-evans/create-pull-request@22a9089034f40e5a961c8808d113e2c98fb63676 # v7
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.pr-token.outputs.token }}
           commit-message: "chore: sync syrup pools from deployment"
           title: "🔄 Sync Syrup Pools (${{ steps.sync.outputs.synced_networks }})"
           body: |
