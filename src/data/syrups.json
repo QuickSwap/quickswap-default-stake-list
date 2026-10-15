@@ -535,6 +535,19 @@
       "link": ""
     },
     {
+      "token": "0x4200000000000000000000000000000000000006",
+      "stakingRewardAddress": "0xE541a56969afd78B3ad5b9e2b6612905c4f29D8d",
+      "ended": false,
+      "name": "Stake QUICK - Earn WETH",
+      "lp": "",
+      "baseToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
+      "rate": 6.20039682539e-7,
+      "ending": 1793283483,
+      "stakingToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
+      "sponsored": false,
+      "link": ""
+    },
+    {
       "token": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
       "stakingRewardAddress": "0xfcd61a88B5B7D9991211Cbd89ec67e0114e5415A",
       "ended": false,
