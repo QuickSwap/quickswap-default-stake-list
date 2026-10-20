@@ -550,7 +550,7 @@
     {
       "token": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
       "stakingRewardAddress": "0xfcd61a88B5B7D9991211Cbd89ec67e0114e5415A",
-      "ended": false,
+      "ended": true,
       "name": "Stake QUICK - Earn QUICK",
       "lp": "",
       "baseToken": "0x7094c27f342DBAdfbbeD005b219431595E33b305",
